@@ -1,8 +1,42 @@
-# React + Vite
+# ALIS – Agile Lawyer Intellect Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Введение
 
-Currently, two official plugins are available:
+ALIS – это десктопное приложение, предназначенное для эффективной работы с документами, создания шаблонов и взаимодействия с документами обеих сторон. Одним из основных преимуществ приложения является возможность работы в офлайн режиме, что позволяет пользователям скачивать и формировать необходимые документы независимо от наличия интернет-соединения.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Технологии
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [tailwind](https://tailwindcss.com/)
+- [material ui] (https://mate](https://mui.com/)
+
+## Быстрый старт
+
+### Установка
+
+```bash
+git clone https://github.com/Bashkanitto/ALIS-client.git
+cd ALIS-client
+npm install
+npm run dev
+```
+
+### Подключение backend
+
+```bash
+git clone https://github.com/Nurrss/soyleBackend
+cd soyleBackend
+npm install
+npm run dev
+```
+
+Создайте .env файл с последующим содержанием
+
+```bash
+VITE_BACKEND_URL=http://localhost:8000/
+```
+
+Откройте http://localhost:3000 в браузере, чтобы увидеть результат.
+
+Этот проект лицензирован под [MIT License](LICENSE).
