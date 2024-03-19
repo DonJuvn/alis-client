@@ -4,10 +4,10 @@ import { Box, CircularProgress, Stack, Toolbar } from '@mui/material';
 import { Sidebar } from './Sidebar/Sidebar';
 import { Header } from './Header/Header';
 import { Breadcrumbs } from '../utils/BreadCrumbs';
+import { SidebarProvider } from './Sidebar/useSidebar';
 
 export const MainLayout = () => (
-  // <SidebarProvider>
-  <>
+  <SidebarProvider>
     <Header />
     <Suspense fallback={<CircularProgress />}>
       <Box>
@@ -23,6 +23,5 @@ export const MainLayout = () => (
         </Stack>
       </Box>
     </Suspense>
-  </>
-  // </SidebarProvider>
+  </SidebarProvider>
 );
