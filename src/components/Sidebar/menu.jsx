@@ -7,6 +7,8 @@ import {
   PeopleOutlineOutlined,
   PermIdentity,
   FolderSharedOutlined,
+  Settings,
+  NoteAdd,
 } from '@mui/icons-material';
 
 export const menu = [
@@ -14,7 +16,7 @@ export const menu = [
     id: 'cash-register',
     title: 'Главное',
     icon: <Home />,
-    link: '/main',
+    link: '/',
   },
   {
     id: 'simple-income',
@@ -56,5 +58,19 @@ export const menu = [
     title: 'Отчеты',
     icon: <ErrorOutlineOutlined />,
     link: '/store/product-categories',
+  },
+  {
+    id: 'settings',
+    title: 'Настройки',
+    icon: <Settings />,
+    link: '/store/product-categories',
+    bottom: true,
+  },
+  {
+    id: 'generation',
+    title: 'Генерация',
+    icon: <NoteAdd />,
+    link: '/store/product-categories',
+    bottom: true,
   },
 ];
