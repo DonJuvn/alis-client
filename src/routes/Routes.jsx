@@ -20,11 +20,11 @@ export const router = createBrowserRouter([
       //   element: <AuthLayout />, // авторизация
       // },
       {
-        path: 'main',
+        path: '/',
         element: <MainLayout />,
         children: [
           {
-            path: '/main/editor',
+            path: '/editor',
             index: true,
             element: <Editor />,
           },
