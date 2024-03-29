@@ -1,24 +1,19 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Box, CircularProgress, Stack, Toolbar } from '@mui/material';
+import { Box, CircularProgress, Stack } from '@mui/material';
 import { Sidebar } from './Sidebar/Sidebar';
-import { Header } from './Header/Header';
 import { Breadcrumbs } from '../utils/BreadCrumbs';
 import { SidebarProvider } from './Sidebar/useSidebar';
 
 export const MainLayout = () => (
   <SidebarProvider>
-    <Header />
     <Suspense fallback={<CircularProgress />}>
-      <Box>
-        <Stack direction="row">
+      <Box height="100%">
+        <Stack direction="row" width="100%" height="95vh" m={2}>
           <Sidebar />
-          <Box flex={1}>
-            <Toolbar />
-            <Box m={2}>
-              <Breadcrumbs />
-              <Outlet />
-            </Box>
+          <Box mx={2} sx={{ minWidth: '100%' }}>
+            <Breadcrumbs />
+            <Outlet />
           </Box>
         </Stack>
       </Box>
