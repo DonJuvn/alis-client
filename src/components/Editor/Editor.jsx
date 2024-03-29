@@ -5,8 +5,11 @@ export const Editor = () => {
   return (
     <iframe
       src={src}
-      width="1000px"
-      height="600px"
+      style={{
+        borderRadius: '10px',
+      }}
+      width="100%"
+      height="100%"
       title="Google Document"
       frameBorder
     ></iframe>
