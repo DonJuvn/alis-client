@@ -10,6 +10,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useNavigation } from './useNavigation';
 import { useSidebar } from './useSidebar';
 import { ArrowRight } from '@mui/icons-material';
+import { useTheme } from '@utils/Theme';
 
 const sidebarWidth = 320;
 
@@ -17,6 +18,7 @@ export const Sidebar = () => {
   const { pathname } = useLocation();
   const { menu } = useNavigation();
   const { isOpen } = useSidebar();
+  const { darkMode } = useTheme();
 
   return (
     <Paper>
@@ -34,7 +36,13 @@ export const Sidebar = () => {
             maxHeight: '40px',
             margin: '20px 0 5px',
           }}
-          src={`${isOpen ? '/imgLogo.png' : '/imgLogoWithoutName.png'} `}
+          src={
+            !darkMode
+              ? isOpen
+                ? '/imgLogo.png'
+                : '/imgLogoWithoutName.png'
+              : '/imgLogoWhite.png'
+          }
           alt="ALIS Logo"
         />
         <input
