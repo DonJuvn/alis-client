@@ -1,5 +1,9 @@
 import { useState, useMemo, createContext, useContext } from 'react';
-import { createTheme, CssBaseline } from '@mui/material';
+import {
+  createTheme,
+  CssBaseline,
+  ThemeProvider as MuiThemeProvider,
+} from '@mui/material';
 
 export const ThemeContext = createContext(undefined);
 
@@ -23,8 +27,10 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, handleThemeChange }}>
-      <CssBaseline />
-      {children}
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MuiThemeProvider>
     </ThemeContext.Provider>
   );
 };
