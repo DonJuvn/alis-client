@@ -16,6 +16,10 @@ export const ThemeProvider = ({ children }) => {
       createTheme({
         palette: {
           mode: darkMode ? 'dark' : 'light',
+          background: {
+            default: darkMode ? '#261E35' : 'white',
+            paper: darkMode ? '#261E35' : 'white',
+          },
         },
       }),
     [darkMode],
@@ -26,7 +30,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, darkMode, handleThemeChange }}>
+    <ThemeContext.Provider value={{ theme, handleThemeChange }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
