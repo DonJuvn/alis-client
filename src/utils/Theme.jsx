@@ -26,7 +26,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, handleThemeChange }}>
+    <ThemeContext.Provider value={{ theme, darkMode, handleThemeChange }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
