@@ -4,6 +4,7 @@ import { Root } from './Root.jsx';
 import { NotFound } from '../utils/NotFound.jsx';
 import { ErrorPage } from '../utils/ErrorPage.jsx';
 import { Editor } from '../components/Editor/Editor.jsx';
+import { Settings } from '../components/Settings/Settings.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,15 @@ export const router = createBrowserRouter([
             path: '/editor',
             index: true,
             element: <Editor />,
+          },
+          {
+            path: '/settings',
+            children: [
+              {
+                index: true,
+                element: <Settings />,
+              },
+            ],
           },
         ],
       },
