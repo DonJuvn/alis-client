@@ -14,7 +14,7 @@ export const Settings = () => {
         <p>Dark Theme</p>
         <Switch
           onChange={handleThemeChange}
-          defaultChecked={theme.palette.mode == 'light'}
+          defaultChecked={theme.palette.mode == 'dark'}
         />
       </Paper>
     </Box>
