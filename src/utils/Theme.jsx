@@ -7,7 +7,6 @@ export const ThemeContext = createContext(undefined);
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Create a theme instance based on the state
   const theme = useMemo(
     () =>
       createTheme({
@@ -18,8 +17,8 @@ export const ThemeProvider = ({ children }) => {
     [darkMode],
   );
 
-  const handleThemeChange = event => {
-    setDarkMode(event.target.checked);
+  const handleThemeChange = () => {
+    setDarkMode(!darkMode);
   };
 
   return (
@@ -30,6 +29,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
