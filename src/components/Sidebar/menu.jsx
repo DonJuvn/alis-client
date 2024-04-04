@@ -63,7 +63,7 @@ export const menu = [
     id: 'settings',
     title: 'Настройки',
     icon: <Settings />,
-    link: '/store/product-categories',
+    link: '/settings/',
     bottom: true,
   },
   {
