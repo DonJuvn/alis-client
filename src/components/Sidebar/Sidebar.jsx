@@ -1,132 +1,140 @@
 import {
-  Box,
   Stack,
-  Drawer,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
 } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigation } from './useNavigation';
 import { useSidebar } from './useSidebar';
-import { NoteAdd, Settings } from '@mui/icons-material';
+import { ArrowRight } from '@mui/icons-material';
 
-const drawerWidth = 320;
+const sidebarWidth = 320;
 
 export const Sidebar = () => {
   const { pathname } = useLocation();
   const { menu } = useNavigation();
-  const { isOpen, closeSidebar } = useSidebar();
+  const { isOpen } = useSidebar();
 
   return (
-    <Drawer
-      open={isOpen}
-      variant="temporary"
+    <Stack
       sx={{
-        width: isOpen ? drawerWidth : 0,
-        height: '100%',
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          padding: '30px 0px',
-          boxSizing: 'border-box',
-        },
+        minWidth: isOpen ? sidebarWidth : 75,
+        transition: '0.3s',
+        background: 'white',
+        borderRadius: '10px',
+        padding: '20px 20px',
       }}
-      onClose={closeSidebar}
     >
       <img
         style={{
-          display: 'flex',
-          padding: '10px 10px',
+          width: '90px',
+          maxHeight: '40px',
+          margin: '20px 0 5px',
         }}
-        width="100px"
-        height="100px"
-        src="/imgLogo.png"
-        alt=""
+        src={`${isOpen ? '/imgLogo.png' : '/imgLogoWithoutName.png'} `}
+        alt="ALIS Logo"
       />
+      <input
+        type="text"
+        placeholder="Поиск"
+        style={{
+          outline: 'none',
+          color: 'black',
+          background: 'rgba(0,0,150,0.1)',
+          margin: '15px 0',
+          padding: '5px 10px',
+          borderRadius: '10px',
+        }}
+      />
+
       <Stack
-        direction="column"
-        justifyContent="space-between"
-        height="100%"
-        divider={<Divider orientation="horizontal" flexItem />}
+        sx={{
+          color: 'black',
+          justifyContent: 'space-between',
+          height: '100%',
+        }}
       >
-        <Box
-          flex={1}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}
-        >
-          <List sx={{ padding: '0' }}>
-            {menu.map(item => (
-              <ListItemButton
-                key={item.id}
-                component={Link}
-                to={item.link ?? ''}
-                selected={pathname === item.link}
-                sx={{
-                  // padding: '8px 0',
-                  '&.Mui-selected ': {
-                    color: '#930B4D',
-                    backgroundColor: 'transparent',
-                  },
-                  '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                    fill: '#930B4D',
-                  },
-                }}
-              >
-                <ListItemIcon sx={{ minWidth: '40px' }}>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.title} />
-              </ListItemButton>
-            ))}
-          </List>
-          <List>
-            <ListItemButton
-              component={Link}
-              to="settings"
-              selected={pathname === 'settings'}
-              sx={{
-                '&.Mui-selected ': {
-                  color: 'red',
-                  backgroundColor: 'transparent',
-                },
-                '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                  fill: 'red',
-                },
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: '40px' }}>
-                <Settings />
-              </ListItemIcon>
-              <ListItemText primary="Настройки" />
-            </ListItemButton>
-            <ListItemButton
-              component={Link}
-              to="generation"
-              selected={pathname === 'generation'}
-              sx={{
-                '&.Mui-selected ': {
-                  color: 'red',
-                  backgroundColor: 'transparent',
-                },
-                '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                  fill: 'red',
-                },
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: '40px' }}>
-                <NoteAdd />
-              </ListItemIcon>
-              <ListItemText primary="Генерация" />
-            </ListItemButton>
-          </List>
-        </Box>
+        <List>
+          {menu.map(
+            item =>
+              !item.bottom && (
+                <ListItemButton
+                  key={item.id}
+                  component={Link}
+                  to={item.link ?? ''}
+                  selected={pathname === item.link}
+                  sx={{
+                    padding: '5px 5px',
+                    margin: '5px 0',
+                    borderRadius: 3,
+                    '&.Mui-selected ': {
+                      color: 'white',
+                      backgroundColor: '#323DA7',
+                    },
+                    '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
+                      fill: 'white',
+                    },
+                    '& .MuiListItemText-primary': {
+                      fontSize: '0.7rem',
+                    },
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: '30px',
+                      '&.MuiListItemIcon-root .MuiSvgIcon-root': {
+                        width: '20px',
+                      },
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  {isOpen && <ListItemText primary={item.title} />}
+                  <ArrowRight
+                    style={{
+                      display: isOpen ? 'flex' : 'none',
+                    }}
+                  />
+                </ListItemButton>
+              ),
+          )}
+        </List>
+        <List>
+          {menu.map(
+            item =>
+              item.bottom && (
+                <ListItemButton
+                  key={item.id}
+                  component={Link}
+                  to={item.link ?? ''}
+                  selected={pathname === item.link}
+                  sx={{
+                    padding: '5px 5px',
+                    margin: '10px 0',
+                    borderRadius: 3,
+                    '&.Mui-selected ': {
+                      color: 'white',
+                      backgroundColor: '#323DA7',
+                    },
+                    '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
+                      fill: 'white',
+                    },
+                    '& .MuiListItemText-primary': {
+                      fontSize: '0.8rem',
+                    },
+                  }}
+                >
+                  <ListItemIcon sx={{ minWidth: '30px' }}>
+                    {item.icon}
+                  </ListItemIcon>
+                  {isOpen && <ListItemText primary={item.title} />}
+                </ListItemButton>
+              ),
+          )}
+        </List>
       </Stack>
-    </Drawer>
+    </Stack>
   );
 };
