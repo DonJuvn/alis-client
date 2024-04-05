@@ -30,7 +30,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, handleThemeChange }}>
+    <ThemeContext.Provider value={{ darkMode, theme, handleThemeChange }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
