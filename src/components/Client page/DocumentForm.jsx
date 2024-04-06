@@ -1,7 +1,8 @@
 import { Button, TextField, IconButton } from '@mui/material';
-import { Delete, Edit, Visibility } from '@mui/icons-material';
+import { Delete, Visibility } from '@mui/icons-material';
+import DownloadIcon from '@mui/icons-material/Download';
 import { useState, useRef, useEffect } from 'react';
-
+import Typography from '@mui/material/Typography';
 const DocumentForm = () => {
   const [activeTab, setActiveTab] = useState(null);
   const containerRef = useRef(null);
@@ -67,7 +68,13 @@ const DocumentForm = () => {
             {tab}
           </Button>
         ))}
-        <div style={{ marginLeft: 'auto', marginTop: 'auto' }}>
+        <div
+          style={{
+            marginLeft: 'auto',
+            marginRight: '-120px',
+            marginTop: 'auto',
+          }}
+        >
           <Button
             onClick={() => {}}
             style={{
@@ -102,7 +109,6 @@ const DocumentForm = () => {
             key={index}
             style={{
               display: 'flex',
-              alignItems: 'center',
               marginLeft: '-55px',
             }}
           >
@@ -112,10 +118,19 @@ const DocumentForm = () => {
               size="small"
               style={{ width: '45%' }}
               InputProps={{ className: 'h-28 text-center text-black' }}
-              InputLabelProps={{ className: 'text-black' }}
+              InputLabelProps={{
+                style: { color: 'black', textAlign: 'center' },
+              }}
             />
             <TextField
-              label="Категория"
+              label={
+                <div>
+                  <span style={{ color: 'blue' }}>Категория: </span>
+                  <Typography style={{ color: 'gray', display: 'inline' }}>
+                    Название пункта
+                  </Typography>
+                </div>
+              }
               variant="outlined"
               size="small"
               style={{ width: '45%' }}
@@ -123,27 +138,32 @@ const DocumentForm = () => {
               InputLabelProps={{ className: 'text-black' }}
             />
             <TextField
-              label="Тип документа"
+              label={
+                <div>
+                  <span style={{ color: 'blue' }}>Тип документа: </span>
+                  <Typography style={{ color: 'gray', display: 'inline' }}>
+                    Название пункта
+                  </Typography>
+                </div>
+              }
               variant="outlined"
               size="small"
-              style={{ width: '45%', textAlign: 'center', justify: 'center' }}
+              style={{ width: '45%' }}
               InputProps={{ className: 'h-28 text-center text-black' }}
-              InputLabelProps={{
-                className: 'text-black ',
-                style: { textAlign: 'center' },
-              }}
+              InputLabelProps={{ className: 'text-black' }}
             />
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'row',
                 gap: '25px',
-                border: '1px solid',
+                border: '2px solid lightgrey',
+                color: 'gray',
                 width: '400px',
-                height: '110px',
+                height: '111px',
                 justifyContent: 'center',
                 marginRight: '-80px',
-                borderRadius: '3px',
+                borderRadius: '5px',
               }}
             >
               {' '}
@@ -151,7 +171,7 @@ const DocumentForm = () => {
                 <Visibility />
               </IconButton>
               <IconButton>
-                <Edit />
+                <DownloadIcon />
               </IconButton>
               <IconButton>
                 <Delete />
