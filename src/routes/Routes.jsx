@@ -6,6 +6,7 @@ import { ErrorPage } from '../utils/ErrorPage.jsx';
 import { Editor } from '../components/Editor/Editor.jsx';
 import Login from '../components/Auth/Login.jsx';
 import Register from '../components/Auth/Registration.jsx';
+import DocumentForm from '../components/Client page/DocumentForm.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
         path: 'register',
         element: <Register />, // регистрация
       },
+
       {
         path: '/',
         element: <MainLayout />,
@@ -33,6 +35,10 @@ export const router = createBrowserRouter([
             path: '/editor',
             index: true,
             element: <Editor />,
+          },
+          {
+            path: 'documents',
+            element: <DocumentForm />,
           },
         ],
       },
