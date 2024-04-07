@@ -1,11 +1,20 @@
-import { Button, TextField, IconButton } from '@mui/material';
+import { Button, OutlinedInput, IconButton } from '@mui/material';
 import { Delete, Visibility } from '@mui/icons-material';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useState, useRef, useEffect } from 'react';
-import Typography from '@mui/material/Typography';
-const DocumentForm = () => {
+import EdoModal from './EdoModal.jsx';
+function DocumentForm() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(null);
   const containerRef = useRef(null);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const handleOutsideClick = event => {
@@ -25,9 +34,8 @@ const DocumentForm = () => {
   }, []);
 
   const handleTabChange = tab => {
-    setActiveTab(prevTab => (prevTab === tab ? prevTab : tab));
+    setActiveTab(tab);
   };
-
   return (
     <div
       style={{
@@ -76,7 +84,7 @@ const DocumentForm = () => {
           }}
         >
           <Button
-            onClick={() => {}}
+            onClick={handleOpenModal}
             style={{
               display: 'flex',
               width: '150px',
@@ -101,6 +109,7 @@ const DocumentForm = () => {
             <span style={{ marginRight: '10px', text: 'bold' }}>+</span> Создать
             ЭДО
           </Button>
+          <EdoModal open={isModalOpen} onClose={handleCloseModal} />
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
@@ -112,9 +121,8 @@ const DocumentForm = () => {
               marginLeft: '-55px',
             }}
           >
-            <TextField
-              label="Название документа"
-              variant="outlined"
+            <OutlinedInput
+              placeholder="          Название документа"
               size="small"
               style={{ width: '45%' }}
               InputProps={{ className: 'h-28 text-center text-black' }}
@@ -122,31 +130,15 @@ const DocumentForm = () => {
                 style: { color: 'black', textAlign: 'center' },
               }}
             />
-            <TextField
-              label={
-                <div>
-                  <span style={{ color: 'blue' }}>Категория: </span>
-                  <Typography style={{ color: 'gray', display: 'inline' }}>
-                    Название пункта
-                  </Typography>
-                </div>
-              }
-              variant="outlined"
+            <OutlinedInput
+              placeholder="     Категория:Название пункта "
               size="small"
               style={{ width: '45%' }}
               InputProps={{ className: 'h-28 text-center text-black' }}
               InputLabelProps={{ className: 'text-black' }}
             />
-            <TextField
-              label={
-                <div>
-                  <span style={{ color: 'blue' }}>Тип документа: </span>
-                  <Typography style={{ color: 'gray', display: 'inline' }}>
-                    Название пункта
-                  </Typography>
-                </div>
-              }
-              variant="outlined"
+            <OutlinedInput
+              placeholder=" Тип документа:Название пункта "
               size="small"
               style={{ width: '45%' }}
               InputProps={{ className: 'h-28 text-center text-black' }}
@@ -182,6 +174,6 @@ const DocumentForm = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DocumentForm;
