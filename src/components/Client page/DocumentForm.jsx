@@ -158,16 +158,66 @@ function DocumentForm() {
                 borderRadius: '5px',
               }}
             >
-              {' '}
-              <IconButton>
-                <Visibility />
-              </IconButton>
-              <IconButton>
-                <DownloadIcon />
-              </IconButton>
-              <IconButton>
-                <Delete />
-              </IconButton>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  alignItems: 'center',
+                }}
+              >
+                <div
+                  style={{
+                    width: '35px',
+                    height: '35px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid black',
+                    backgroundColor: 'white',
+                    margin: '0 5px',
+                    borderRadius: '5px',
+                  }}
+                >
+                  <IconButton style={{ color: '#323DA7' }}>
+                    <Visibility />
+                  </IconButton>
+                </div>
+                <div
+                  style={{
+                    width: '35px',
+                    height: '35px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid black',
+                    backgroundColor: '#323DA7',
+                    margin: '0 5px',
+                    borderRadius: '5px',
+                  }}
+                >
+                  <IconButton style={{ color: 'white' }}>
+                    <DownloadIcon />
+                  </IconButton>
+                </div>
+                <div
+                  style={{
+                    width: '35px',
+                    height: '35px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid black',
+                    backgroundColor: '#900E16',
+                    margin: '0 5px',
+                    borderRadius: '5px',
+                  }}
+                >
+                  <IconButton style={{ color: 'white' }}>
+                    <Delete />
+                  </IconButton>
+                </div>
+              </div>
             </div>
           </div>
         ))}
