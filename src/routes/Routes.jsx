@@ -7,6 +7,7 @@ import { Editor } from '../components/Editor/Editor.jsx';
 import Login from '../components/Auth/Login.jsx';
 import Register from '../components/Auth/Registration.jsx';
 import DocumentForm from '../components/Client page/DocumentForm.jsx';
+import OrganizationForm from '../components/Generation/OrganizationForm.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
           {
             path: 'documents',
             element: <DocumentForm />,
+          },
+          {
+            path: '/generations',
+            element: <OrganizationForm />,
           },
         ],
       },

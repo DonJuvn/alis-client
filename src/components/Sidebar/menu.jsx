@@ -70,7 +70,7 @@ export const menu = [
     id: 'generation',
     title: 'Генерация',
     icon: <NoteAdd />,
-    link: '/store/product-categories',
+    link: '/generations',
     bottom: true,
   },
 ];
