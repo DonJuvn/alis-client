@@ -17,7 +17,7 @@ const sidebarWidth = 320;
 export const Sidebar = () => {
   const { pathname } = useLocation();
   const { menu } = useNavigation();
-  const { isOpen } = useSidebar();
+  const { isOpen, toggleSidebar } = useSidebar();
   const { darkMode } = useTheme();
 
   return (
@@ -31,6 +31,7 @@ export const Sidebar = () => {
         }}
       >
         <img
+          onClick={toggleSidebar}
           style={{
             width: '90px',
             maxHeight: '40px',

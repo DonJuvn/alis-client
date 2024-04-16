@@ -5,6 +5,7 @@ import { NotFound } from '../utils/NotFound.jsx';
 import { ErrorPage } from '../utils/ErrorPage.jsx';
 import { Editor } from '../components/Editor/Editor.jsx';
 import { Settings } from '../components/Settings/Settings.jsx';
+import { Organisations } from '@components/Organisations';
 import Login from '../components/Auth/Login.jsx';
 import Register from '../components/Auth/Registration.jsx';
 
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
               {
                 index: true,
                 element: <Settings />,
+              },
+              {
+                path: '/settings/organisations',
+                element: <Organisations />,
               },
             ],
           },
