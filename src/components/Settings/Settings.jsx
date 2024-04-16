@@ -1,8 +1,6 @@
-import { Box, Paper, Switch } from '@mui/material';
-import { useTheme } from '../../utils/Theme';
+import { Box, Paper } from '@mui/material';
 
 export const Settings = () => {
-  const { theme, handleThemeChange } = useTheme();
   return (
     <Box flexDirection="row">
       <Paper
@@ -10,13 +8,7 @@ export const Settings = () => {
           display: 'flex',
           alignItems: 'center',
         }}
-      >
-        <p>Dark Theme</p>
-        <Switch
-          onChange={handleThemeChange}
-          defaultChecked={theme.palette.mode == 'dark'}
-        />
-      </Paper>
+      ></Paper>
     </Box>
   );
 };
