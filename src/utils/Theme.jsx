@@ -1,4 +1,4 @@
-import { useState, useMemo, createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import {
   createTheme,
   CssBaseline,
@@ -9,28 +9,18 @@ export const ThemeContext = createContext(undefined);
 
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: darkMode ? 'dark' : 'light',
-          background: {
-            default: darkMode ? '#261E35' : 'white',
-            paper: darkMode ? '#261E35' : 'white',
-          },
-        },
-      }),
-    [darkMode],
-  );
-
-  const handleThemeChange = () => {
-    setDarkMode(!darkMode);
-  };
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+      background: {
+        default: '#261E35',
+        paper: '#261E35',
+      },
+    },
+  });
 
   return (
-    <ThemeContext.Provider value={{ darkMode, theme, handleThemeChange }}>
+    <ThemeContext.Provider value={{ theme }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
