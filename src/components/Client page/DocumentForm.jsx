@@ -19,7 +19,7 @@ const CustomTable = () => {
     <>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={3}>
-          <Typography variant="subtitle1" style={{ color: 'white'  }}>
+          <Typography variant="subtitle1" style={{ color: 'white' }}>
             Название документа
           </Typography>
         </Grid>
@@ -40,7 +40,13 @@ const CustomTable = () => {
         </Grid>
         <Grid item xs={2}></Grid>
       </Grid>
-      <Divider sx={{ borderColor: 'white !important', border: 1, borderStyle: 'solid' }} />
+      <Divider
+        sx={{
+          borderColor: 'white !important',
+          border: 1,
+          borderStyle: 'solid',
+        }}
+      />
     </>
   );
   const renderRepeatedInputs = () => {
@@ -101,7 +107,13 @@ const CustomTable = () => {
             </div>
           </Grid>
         </Grid>
-        <Divider sx={{ borderColor: 'white !important', border: 1, borderStyle: 'solid' }} />
+        <Divider
+          sx={{
+            borderColor: 'white !important',
+            border: 1,
+            borderStyle: 'solid',
+          }}
+        />
       </Fragment>
     ));
   };
@@ -145,7 +157,7 @@ const LabTabs = () => {
           color: 'white',
         },
         '& .MuiTab-selected': {
-          color: 'white', 
+          color: 'white',
         },
       }}
     >
