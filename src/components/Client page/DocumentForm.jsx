@@ -144,7 +144,7 @@ const LabTabs = () => {
         '& .MuiTab-root': {
           color: 'white',
         },
-        '& .Mui-selected': {
+        '& .MuiTab-selected': {
           color: 'white', 
         },
       }}
