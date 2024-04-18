@@ -18,11 +18,12 @@ export const Sidebar = () => {
   const { isOpen } = useSidebar();
 
   return (
+    <div style={{ border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '10px', }}>
     <Stack
       sx={{
         minWidth: isOpen ? sidebarWidth : 75,
         transition: '0.3s',
-        background: 'white',
+        background: '#261E35',
         borderRadius: '10px',
         padding: '20px 20px',
       }}
@@ -41,17 +42,20 @@ export const Sidebar = () => {
         placeholder="Поиск"
         style={{
           outline: 'none',
-          color: 'black',
+          color: 'white',
           background: 'rgba(0,0,150,0.1)',
           margin: '15px 0',
           padding: '5px 10px',
           borderRadius: '10px',
+          border:'1px solid',
+          borderColor:"white",
+          opacity:"40%"
         }}
       />
 
       <Stack
         sx={{
-          color: 'black',
+          color: 'white',
           justifyContent: 'space-between',
           height: '100%',
         }}
@@ -71,7 +75,7 @@ export const Sidebar = () => {
                     borderRadius: 3,
                     '&.Mui-selected ': {
                       color: 'white',
-                      backgroundColor: '#323DA7',
+                      backgroundColor: '372C44',
                     },
                     '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
                       fill: 'white',
@@ -85,6 +89,7 @@ export const Sidebar = () => {
                     sx={{
                       minWidth: '30px',
                       '&.MuiListItemIcon-root .MuiSvgIcon-root': {
+                        color:'white',
                         width: '20px',
                       },
                     }}
@@ -126,7 +131,7 @@ export const Sidebar = () => {
                     },
                   }}
                 >
-                  <ListItemIcon sx={{ minWidth: '30px' }}>
+                  <ListItemIcon sx={{ minWidth: '30px', color:'white' }}>
                     {item.icon}
                   </ListItemIcon>
                   {isOpen && <ListItemText primary={item.title} />}
@@ -136,5 +141,6 @@ export const Sidebar = () => {
         </List>
       </Stack>
     </Stack>
+    </div>
   );
 };

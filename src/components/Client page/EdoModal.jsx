@@ -3,32 +3,30 @@ import {
   Modal,
   Box,
   Typography,
-  OutlinedInput,
-  MenuItem,
   Select,
+  MenuItem,
+  OutlinedInput,
   Button,
 } from '@mui/material';
-import PropTypes from 'prop-types';
-EdoModal.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+const WhiteArrowDropDownIcon = () => (
+  <ArrowDropDownIcon style={{ color: 'white' }} />
+);
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  width: 750,
-  height: 500,
-  transform: 'translate(-50%, -50%)',
-  borderRadius: 5,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  width: '530px',
+  height: '700px',
+  borderRadius: '12px',
+  backgroundColor: '#322B42',
+  border: '1px solid rgba(255, 255, 255, 0.7)',
+  boxShadow: '0 0 24px rgba(0, 0, 0, 0.5)',
+  padding: '25px 20px 0 20px',
 };
 
 function EdoModal({ open, onClose }) {
-  // Допустим, у вас есть состояние для хранения выбранной организации
   const [organization, setOrganization] = React.useState('');
 
   const handleOrganizationChange = event => {
@@ -38,15 +36,42 @@ function EdoModal({ open, onClose }) {
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style}>
-        <Typography variant="subtitle1" gutterBottom>
-          Название организации
+        <Typography
+          variant="h4"
+          sx={{ color: 'white', marginBottom: '10px' }}
+          component="h2"
+          gutterBottom
+        >
+          Создание Документа
         </Typography>
+        <Typography variant="subtitle3" style={{ color: 'white' }} gutterBottom>
+          Откроется форма для ввода новых данных. Заполните все необходимые
+          поля, обратив внимание на обязательные для заполнения поля
+        </Typography>
+        <h2 style={{ color: 'white', paddingTop: '15px' }}>
+          Название организации
+        </h2>
         <Select
           value={organization}
           onChange={handleOrganizationChange}
           displayEmpty
-          inputProps={{ 'aria-label': 'Without label' }}
           fullWidth
+          IconComponent={WhiteArrowDropDownIcon}
+          sx={{
+            mt: 1,
+            borderRadius: '10px',
+            color: 'white',
+            maxHeight:'50px',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+          }}
         >
           <MenuItem value="" disabled>
             Организация
@@ -56,46 +81,103 @@ function EdoModal({ open, onClose }) {
           <MenuItem value={'Организация 2'}>Организация 2</MenuItem>
           {/* ...другие организации... */}
         </Select>
-
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          style={{ marginTop: '20px' }}
-        >
-          Имя сотрудника
-        </Typography>
-        <OutlinedInput placeholder="Напишите данные" fullWidth />
-
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          style={{ marginTop: '20px' }}
-        >
+        <h2 style={{ color: 'white', paddingTop: '15px' }}>Имя сотрудника</h2>
+        <OutlinedInput
+          placeholder="Имя сотрудника"
+          style={{ color: 'white' }}
+          fullWidth
+          sx={{
+            mt: 1,
+            borderRadius: '10px',
+            maxHeight:'50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+          }}
+        />
+        <h2 style={{ color: 'white', paddingTop: '15px' }}>
           Название должности
-        </Typography>
-        <OutlinedInput placeholder="Напишите данные" fullWidth />
-        <div
-          style={{
+        </h2>
+        <OutlinedInput
+          placeholder="Напишите данные"
+          style={{ color: 'white' }}
+          fullWidth
+          sx={{
+            mt: 1,
+            borderRadius: '10px',
+            maxHeight:'50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+          }}
+        />
+        <Box
+          sx={{
             position: 'absolute',
-            bottom: '40px',
-            width: '92%',
-            textAlign: 'center',
+            bottom: 25,
+            left: '10%',
+            transform: 'translateX(-50%)',
+            right: '-400px',
+            display: 'flex',
+            justifyContent: 'flex-end',
           }}
         >
           <Button
-            onClick={onClose}
-            style={{
-              marginTop: '20px',
-              backgroundColor: '#323DA7',
-              color: 'white',
-              width: 'calc(100% - 1px)',
-              height: '50px',
-              borderRadius: '10px',
+            variant="contained"
+            sx={{
+              mr: '25px',
+              backgroundColor: '#8767C4',
+              width: '300px',
+              height: '40px',
+              borderRadius: '8px',
+              '&:hover': {
+                backgroundColor: '#8767C4',
+                '@media (hover: none)': {
+                  backgroundColor: '#8767C4',
+                },
+              },
             }}
           >
             Сохранить
           </Button>
-        </div>
+          <Button
+            variant="outlined"
+            sx={{
+              backgroundColor: 'none',
+              width: '120px',
+              height: '40px',
+              borderRadius: '8px',
+              color: 'rgba(255, 255, 255, 0.7)',
+              borderColor: 'rgba(255, 255, 255, 0.7)',
+              '&:hover': {
+                backgroundColor: 'none',
+                borderColor: 'rgba(255, 255, 255, 0.7)',
+                color: 'rgba(255, 255, 255, 0.7)',
+                '@media (hover: none)': {
+                  borderColor: 'rgba(255, 255, 255, 0.7)',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                },
+              },
+            }}
+            onClick={onClose}
+          >
+            Назад
+          </Button>
+        </Box>
       </Box>
     </Modal>
   );

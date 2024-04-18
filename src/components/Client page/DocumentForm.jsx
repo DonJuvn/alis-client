@@ -1,12 +1,162 @@
-import { Button, OutlinedInput, IconButton } from '@mui/material';
+import {
+  Button,
+  IconButton,
+  Tab,
+  Tabs,
+  Grid,
+  TextField,
+  Divider,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { Delete, Visibility } from '@mui/icons-material';
 import DownloadIcon from '@mui/icons-material/Download';
-import { useState, useRef, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import EdoModal from './EdoModal.jsx';
-function DocumentForm() {
+
+const CustomTable = () => {
+  const renderHeaders = () => (
+    <>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={3}>
+          <Typography variant="subtitle1" style={{ color: 'white'  }}>
+            Название документа
+          </Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Typography variant="subtitle1" style={{ color: 'white' }}>
+            Категория{' '}
+          </Typography>
+        </Grid>
+        <Grid item xs={3}>
+          <Typography variant="subtitle1" style={{ color: 'white' }}>
+            Тип документа
+          </Typography>
+        </Grid>
+        <Grid item xs={1}>
+          <Typography variant="subtitle1" style={{ color: 'white' }}>
+            Дата
+          </Typography>
+        </Grid>
+        <Grid item xs={2}></Grid>
+      </Grid>
+      <Divider sx={{ borderColor: 'white !important', border: 1, borderStyle: 'solid' }} />
+    </>
+  );
+  const renderRepeatedInputs = () => {
+    return Array.from({ length: 8 }, (_, index) => (
+      <Fragment key={index}>
+        <Grid container spacing={2} alignItems="center">
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              margin="normal"
+              variant="standard"
+              placeholder="Название документа"
+              inputProps={{ style: { color: 'white' } }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              margin="normal"
+              variant="standard"
+              placeholder="Категория пункта"
+              inputProps={{ style: { color: 'white' } }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              fullWidth
+              margin="normal"
+              variant="standard"
+              placeholder="Название пункта"
+              inputProps={{ style: { color: 'white' } }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              fullWidth
+              margin="normal"
+              variant="standard"
+              placeholder="27.03.24"
+              inputProps={{ style: { color: 'white' } }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+              <IconButton style={{ color: 'white' }}>
+                <Visibility />
+              </IconButton>
+              <IconButton style={{ color: 'white' }}>
+                <DownloadIcon />
+              </IconButton>
+              <IconButton style={{ color: 'white' }}>
+                <Delete />
+              </IconButton>
+            </div>
+          </Grid>
+        </Grid>
+        <Divider sx={{ borderColor: 'white !important', border: 1, borderStyle: 'solid' }} />
+      </Fragment>
+    ));
+  };
+
+  return (
+    <Paper
+      elevation={3}
+      style={{
+        padding: '20px',
+        backgroundColor: '#322A42',
+        border: '20px',
+        borderRadius: '12px',
+        width: '1120px',
+        height: '575px',
+        marginRight: '100px',
+        marginLeft: '-50px',
+      }}
+    >
+      {renderHeaders()}
+      <div>{renderRepeatedInputs()}</div>
+    </Paper>
+  );
+};
+const LabTabs = () => {
+  const [value, setValue] = useState('1');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+  return (
+    <Tabs
+      value={value}
+      onChange={handleChange}
+      textColor="secondary"
+      indicatorColor="secondary"
+      sx={{
+        '& .MuiTabs-indicator': {
+          backgroundColor: 'white',
+        },
+        '& .MuiTab-root': {
+          color: 'white',
+        },
+        '& .Mui-selected': {
+          color: 'white', 
+        },
+      }}
+    >
+      <Tab value="one" label="Покупатели" />
+      <Tab value="two" label="Поставщики" />
+      <Tab value="three" label="Штат" />
+    </Tabs>
+  );
+};
+const DocumentForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(null);
-  const containerRef = useRef(null);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -16,66 +166,21 @@ function DocumentForm() {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const handleOutsideClick = event => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target)
-      ) {
-        setActiveTab(null);
-      }
-    };
-
-    document.addEventListener('mousedown', handleOutsideClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, []);
-
-  const handleTabChange = tab => {
-    setActiveTab(tab);
-  };
   return (
     <div
       style={{
-        padding: '10px 100px 50px 100px',
+        padding: '0px 100px 50px 50px',
         margin: '0 30px',
-        backgroundColor: 'white',
+        backgroundColor: '#261E35',
         width: '1150px',
-        height: '665px',
+        height: '661px',
         borderRadius: '10px',
       }}
     >
       <div
         style={{ display: 'flex', marginBottom: '35px', marginLeft: '-55px' }}
       >
-        {['покупатели', 'поставщики', 'штат'].map(tab => (
-          <Button
-            key={tab}
-            onClick={() => handleTabChange(tab)}
-            onFocus={() => setActiveTab(tab)}
-            style={{
-              fontSize: '14px',
-              padding: '8px 16px',
-              marginRight: '10px',
-              marginTop: '30px',
-              borderRadius: '10px',
-              backgroundColor: activeTab === tab ? '#323DA7' : 'white',
-              color: activeTab === tab ? 'white' : '#040101',
-              '&:hover': {
-                backgroundColor: '#323DA7',
-                color: 'white',
-              },
-              '&:focus': {
-                backgroundColor: '#323DA7',
-                color: 'white',
-              },
-            }}
-          >
-            {tab}
-          </Button>
-        ))}
+        <LabTabs />
         <div
           style={{
             marginLeft: 'auto',
@@ -90,140 +195,23 @@ function DocumentForm() {
               width: '150px',
               height: '40px',
               fontSize: '10px',
-              padding: '1px 20px  ',
+              padding: '1px 20px',
               marginTop: '10px',
               marginRight: '50px',
-              borderRadius: '10px',
-              backgroundColor: '#323DA7',
+              borderRadius: '5px',
+              backgroundColor: '#8767C4',
               color: 'white',
-              '&:hover': {
-                backgroundColor: '#2e2e9b',
-                color: 'white',
-              },
-              '&:focus': {
-                backgroundColor: '#2e2e9b',
-                color: 'white',
-              },
             }}
           >
-            <span style={{ marginRight: '10px', text: 'bold' }}>+</span> Создать
-            ЭДО
+            <span style={{ marginRight: '10px', fontWeight: 'bold' }}>+</span>{' '}
+            Создать ЭДО
           </Button>
           <EdoModal open={isModalOpen} onClose={handleCloseModal} />
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-        {[1, 2, 3, 4].map(index => (
-          <div
-            key={index}
-            style={{
-              display: 'flex',
-              marginLeft: '-55px',
-            }}
-          >
-            <OutlinedInput
-              placeholder="          Название документа"
-              size="small"
-              style={{ width: '45%' }}
-              InputProps={{ className: 'h-28 text-center text-black' }}
-              InputLabelProps={{
-                style: { color: 'black', textAlign: 'center' },
-              }}
-            />
-            <OutlinedInput
-              placeholder="     Категория:Название пункта "
-              size="small"
-              style={{ width: '45%' }}
-              InputProps={{ className: 'h-28 text-center text-black' }}
-              InputLabelProps={{ className: 'text-black' }}
-            />
-            <OutlinedInput
-              placeholder=" Тип документа:Название пункта "
-              size="small"
-              style={{ width: '45%' }}
-              InputProps={{ className: 'h-28 text-center text-black' }}
-              InputLabelProps={{ className: 'text-black' }}
-            />
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '25px',
-                border: '2px solid lightgrey',
-                color: 'gray',
-                width: '400px',
-                height: '111px',
-                justifyContent: 'center',
-                marginRight: '-80px',
-                borderRadius: '5px',
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: '10px',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: '35px',
-                    height: '35px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid black',
-                    backgroundColor: 'white',
-                    margin: '0 5px',
-                    borderRadius: '5px',
-                  }}
-                >
-                  <IconButton style={{ color: '#323DA7' }}>
-                    <Visibility />
-                  </IconButton>
-                </div>
-                <div
-                  style={{
-                    width: '35px',
-                    height: '35px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid black',
-                    backgroundColor: '#323DA7',
-                    margin: '0 5px',
-                    borderRadius: '5px',
-                  }}
-                >
-                  <IconButton style={{ color: 'white' }}>
-                    <DownloadIcon />
-                  </IconButton>
-                </div>
-                <div
-                  style={{
-                    width: '35px',
-                    height: '35px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid black',
-                    backgroundColor: '#900E16',
-                    margin: '0 5px',
-                    borderRadius: '5px',
-                  }}
-                >
-                  <IconButton style={{ color: 'white' }}>
-                    <Delete />
-                  </IconButton>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <CustomTable />
     </div>
   );
-}
+};
 
 export default DocumentForm;
