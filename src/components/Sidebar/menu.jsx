@@ -42,19 +42,19 @@ export const menu = [
     icon: <ContentPasteGoOutlined />,
   },
   {
-    id: 'products',
+    id: 'products-1',
     title: 'Трудовые отнощения',
     icon: <SwapHorizOutlined />,
     link: '/store/product-categories',
   },
   {
-    id: 'products',
+    id: 'products-2',
     title: 'Справочники',
     icon: <DescriptionOutlined />,
     link: '/store/product-categories',
   },
   {
-    id: 'products',
+    id: 'products-3',
     title: 'Отчеты',
     icon: <ErrorOutlineOutlined />,
     link: '/store/product-categories',
@@ -63,7 +63,7 @@ export const menu = [
     id: 'settings',
     title: 'Настройки',
     icon: <Settings />,
-    link: '/store/product-categories',
+    link: '/settings/',
     bottom: true,
   },
   {
