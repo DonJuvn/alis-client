@@ -147,7 +147,6 @@ const LabTabs = () => {
     <Tabs
       value={value}
       onChange={handleChange}
-      textColor="secondary"
       indicatorColor="secondary"
       sx={{
         '& .MuiTabs-indicator': {
@@ -156,8 +155,8 @@ const LabTabs = () => {
         '& .MuiTab-root': {
           color: 'white',
         },
-        '& .MuiTab-selected': {
-          color: 'white',
+        '& .MuiText-selected': {
+          Color: 'white',
         },
       }}
     >
