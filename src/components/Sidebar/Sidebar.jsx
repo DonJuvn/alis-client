@@ -21,80 +21,6 @@ export const Sidebar = () => {
   const { darkMode } = useTheme();
 
   return (
-    <div style={{ border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '10px', }}>
-    <Stack
-      sx={{
-        minWidth: isOpen ? sidebarWidth : 75,
-        transition: '0.3s',
-        background: '#261E35',
-        borderRadius: '10px',
-        padding: '20px 20px',
-      }}
-    >
-      <img
-        style={{
-          width: '90px',
-          maxHeight: '40px',
-          margin: '20px 0 5px',
-        }}
-        src={`${isOpen ? '/imgLogo.png' : '/imgLogoWithoutName.png'} `}
-        alt="ALIS Logo"
-      />
-      <input
-        type="text"
-        placeholder="Поиск"
-        style={{
-          outline: 'none',
-          color: 'white',
-          background: 'rgba(0,0,150,0.1)',
-          margin: '15px 0',
-          padding: '5px 10px',
-          borderRadius: '10px',
-          border:'1px solid',
-          borderColor:"white",
-          opacity:"40%"
-        }}
-      />
-
-      <Stack
-        sx={{
-          color: 'white',
-          justifyContent: 'space-between',
-          height: '100%',
-        }}
-      >
-        <List>
-          {menu.map(
-            item =>
-              !item.bottom && (
-                <ListItemButton
-                  key={item.id}
-                  component={Link}
-                  to={item.link ?? ''}
-                  selected={pathname === item.link}
-                  sx={{
-                    padding: '5px 5px',
-                    margin: '5px 0',
-                    borderRadius: 3,
-                    '&.Mui-selected ': {
-                      color: 'white',
-                      backgroundColor: '372C44',
-                    },
-                    '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                      fill: 'white',
-                    },
-                    '& .MuiListItemText-primary': {
-                      fontSize: '0.7rem',
-                    },
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: '30px',
-                      '&.MuiListItemIcon-root .MuiSvgIcon-root': {
-                        color:'white',
-                        width: '20px',
-
     <Paper>
       <Stack
         sx={{
@@ -161,7 +87,6 @@ export const Sidebar = () => {
                       },
                       '& .MuiListItemText-primary': {
                         fontSize: '0.7rem',
-
                       },
                     }}
                   >
@@ -209,49 +134,6 @@ export const Sidebar = () => {
                         fontSize: '0.8rem',
                       },
                     }}
-
-                  />
-                </ListItemButton>
-              ),
-          )}
-        </List>
-        <List>
-          {menu.map(
-            item =>
-              item.bottom && (
-                <ListItemButton
-                  key={item.id}
-                  component={Link}
-                  to={item.link ?? ''}
-                  selected={pathname === item.link}
-                  sx={{
-                    padding: '5px 5px',
-                    margin: '10px 0',
-                    borderRadius: 3,
-                    '&.Mui-selected ': {
-                      color: 'white',
-                      backgroundColor: '#323DA7',
-                    },
-                    '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                      fill: 'white',
-                    },
-                    '& .MuiListItemText-primary': {
-                      fontSize: '0.8rem',
-                    },
-                  }}
-                >
-                  <ListItemIcon sx={{ minWidth: '30px', color:'white' }}>
-                    {item.icon}
-                  </ListItemIcon>
-                  {isOpen && <ListItemText primary={item.title} />}
-                </ListItemButton>
-              ),
-          )}
-        </List>
-      </Stack>
-    </Stack>
-    </div>
-
                   >
                     <ListItemIcon sx={{ minWidth: '30px' }}>
                       {item.icon}

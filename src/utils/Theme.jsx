@@ -20,14 +20,6 @@ export const ThemeProvider = ({ children }) => {
   });
 
   return (
-
-    <ThemeContext.Provider value={{ theme, handleThemeChange }}>
-      <CssBaseline sx={{
-        '&.Mui-selected':{    
-        }
-      }} />
-      {children}
-
     <ThemeContext.Provider value={{ theme }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
