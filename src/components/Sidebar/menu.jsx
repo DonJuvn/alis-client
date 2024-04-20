@@ -22,7 +22,7 @@ export const menu = [
     id: 'simple-income',
     title: 'Руководителю',
     icon: <PermIdentity />,
-    link: '/simple-income',
+    link: '/documents',
   },
   {
     id: 'payments',
@@ -70,7 +70,7 @@ export const menu = [
     id: 'generation',
     title: 'Генерация',
     icon: <NoteAdd />,
-    link: '/store/product-categories',
+    link: '/generations',
     bottom: true,
   },
 ];
