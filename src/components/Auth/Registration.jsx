@@ -87,7 +87,7 @@ const Register = () => {
           </Button>
         </form>
         <div className="mt-3 flex flex-col gap-2 md:flex-row md:gap-5">
-          <span>Есть учетноая запись</span>
+          <span>Есть учетная запись</span>
           <Link
             component={RouterLink}
             to="/login"
