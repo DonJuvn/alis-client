@@ -9,10 +9,14 @@ import {
   IconButton,
 } from '@mui/material';
 
-import DownloadIcon from '@mui/icons-material/Download';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Visibility } from '@mui/icons-material';
+const WhiteArrowDropDownIcon = () => (
+  <ArrowDropDownIcon style={{ color: 'white' }} />
+);
 export default function OrganizationForm() {
   const dashedBorderStyle = {
-    border: '2px dashed black',
+    border: '1px solid white',
     padding: '16px',
   };
 
@@ -25,7 +29,7 @@ export default function OrganizationForm() {
       style={{
         maxWidth: '1460px',
         minHeight: '661px',
-        backgroundColor: 'white',
+        backgroundColor: '#322A42',
         margin: 'auto',
         borderRadius: '10px',
         position: 'relative',
@@ -36,22 +40,11 @@ export default function OrganizationForm() {
       <Box
         style={{
           ...dashedBorderStyle,
-          width: '30%', // Ширина пустой рамки
-          height: '630px', // Высота пустой рамки
-          borderRadius: '15px', // Закругление углов рамки
-          border: '1px dashed black', // Пунктирная рамка
-          position: 'absolute', // Абсолютное позиционирование относительно родительского Box
-          left: 'calc(30% + 40px)', // Смещение на ширину текущего Box + отступ
-        }}
-      />
-      <Box
-        style={{
-          ...dashedBorderStyle,
           width: '30%',
           height: '630px',
           borderRadius: '15px',
           paddingRight: '20px',
-          marginRight: '950px',
+          marginLeft: 'auto',
           marginTop: '15px',
           paddingTop: '10px',
         }}
@@ -59,77 +52,219 @@ export default function OrganizationForm() {
         <Typography
           variant="subtitle1"
           gutterBottom
-          style={{ fontWeight: 'bold', marginLeft: '15px' }}
+          style={{ fontWeight: 'bold', marginLeft: '15px', color: 'white' }}
         >
           Название организации
         </Typography>
         <OutlinedInput
           placeholder="Введите данные"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
-          InputProps={{ className: 'h-28  text-black' }}
+          style={{
+            width: '100%',
+            marginBottom: '15px',
+            color: 'white',
+            borderColor: 'white',
+          }}
+          InputProps={{ className: 'h-28 text-white' }}
+          sx={{
+            borderRadius: '10px',
+            maxHeight: '50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+          }}
         />
         <OutlinedInput
           placeholder="Текстовое поле"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
-          InputProps={{ className: 'h-28  text-black' }}
+          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          InputProps={{ className: 'h-28 text-white' }}
+          sx={{
+            borderRadius: '10px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+          }}
         />
         <OutlinedInput
           placeholder="Организация"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
+          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
           inputProps={{
-            className: 'h-28  text-black',
+            className: 'h-28 text-white',
+          }}
+          sx={{
+            borderRadius: '10px',
+            maxHeight: '50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
           }}
         />
         <OutlinedInput
           placeholder="Контрагент"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
+          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
           inputProps={{
-            className: 'h-28  text-black',
+            className: 'h-28 text-white',
+          }}
+          sx={{
+            borderRadius: '10px',
+            maxHeight: '50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
           }}
         />
         <OutlinedInput
           placeholder="Документ"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
+          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
           inputProps={{
-            className: 'h-28 text-black',
+            className: 'h-28 text-white',
+          }}
+          sx={{
+            borderRadius: '10px',
+            maxHeight: '50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
           }}
         />
         <OutlinedInput
           placeholder="Сотрудник"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', borderRadius: '10px' }}
+          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
           inputProps={{
-            className: 'h-28  text-black',
+            className: 'h-28 text-white',
+          }}
+          sx={{
+            borderRadius: '10px',
+            maxHeight: '50px',
+            color: 'white',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
           }}
         />
         <Typography
           variant="subtitle1"
           gutterBottom
-          style={{ fontWeight: 'bold', marginLeft: '15px' }}
+          style={{
+            fontWeight: 'bold',
+            marginLeft: '5px',
+            marginBottom: '1px',
+            color: 'white',
+          }}
         >
           Имя сотрудника
         </Typography>
         <FormControl style={{ width: '100%' }}>
-          <InputLabel id="job-title-label">Введите данные</InputLabel>
-          <Select labelId="job-title-label" id="job-title">
+          <InputLabel id="job-title-label" style={{ color: 'white' }}>
+            Введите данные
+          </InputLabel>
+          <Select
+            labelId="job-title-label"
+            id="job-title"
+            style={{ color: 'white' }}
+            IconComponent={WhiteArrowDropDownIcon}
+            sx={{
+              mt: '5px',
+              borderRadius: '10px',
+              color: 'white',
+              maxHeight: '50px',
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+            }}
+          >
             {/* Здесь должны быть элементы MenuItem */}
           </Select>
         </FormControl>
         <Typography
           variant="subtitle1"
           gutterBottom
-          style={{ fontWeight: 'bold', marginLeft: '15px' }}
+          style={{
+            fontWeight: 'bold',
+            marginLeft: '5px',
+            marginBottom: '10px',
+            color: 'white',
+          }}
         >
           Название должности
         </Typography>
         <FormControl style={{ width: '100%' }}>
-          <InputLabel id="job-title-label">Введите данные</InputLabel>
-          <Select labelId="job-title-label" id="job-title">
+          <InputLabel id="job-title-label" style={{ color: 'white' }}>
+            Введите данные
+          </InputLabel>
+          <Select
+            labelId="job-title-label"
+            id="job-title"
+            style={{ color: 'white' }}
+            IconComponent={WhiteArrowDropDownIcon}
+            sx={{
+              mt: '5px',
+              borderRadius: '10px',
+              color: 'white',
+              maxHeight: '50px',
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              },
+            }}
+          >
             {/* Здесь должны быть элементы MenuItem */}
           </Select>
         </FormControl>
@@ -139,8 +274,8 @@ export default function OrganizationForm() {
           style={{
             ...buttonStyle,
             width: '340px',
-            backgroundColor: '#323DA7',
-            borderRadius: '10px',
+            backgroundColor: '#8767C4',
+            borderRadius: '8px',
             marginTop: '25px',
             marginRight: '1px',
             position: 'relative',
@@ -149,25 +284,25 @@ export default function OrganizationForm() {
             alignItems: 'center',
           }}
         >
-          Создать
+          Сформировать
           <Box
             style={{
-              width: '35px',
+              width: '36px',
+              height: '36px',
               position: 'absolute',
               right: '-50px',
               top: '50%',
               transform: 'translateY(-50%)',
-              height: '35px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '1px solid black',
-              backgroundColor: 'white',
-              borderRadius: '5px',
+              border: '1px solid white',
+              borderRadius: '8px',
             }}
           >
-            <IconButton style={{ color: '#323DA7' }}>
-              <DownloadIcon />
+            {' '}
+            <IconButton style={{ color: 'white' }}>
+              <Visibility />
             </IconButton>
           </Box>
         </Button>
