@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             element: <DocumentForm />,
           },
           {
-            path: '/generations',
+            path: 'generation',
             element: <OrganizationForm />,
           },
           {

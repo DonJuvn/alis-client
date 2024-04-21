@@ -61,7 +61,7 @@ function EdoModal({ open, onClose }) {
             mt: 1,
             borderRadius: '10px',
             color: 'white',
-            maxHeight:'50px',
+            maxHeight: '50px',
             '& .MuiOutlinedInput-notchedOutline': {
               borderColor: 'white',
             },
@@ -89,7 +89,7 @@ function EdoModal({ open, onClose }) {
           sx={{
             mt: 1,
             borderRadius: '10px',
-            maxHeight:'50px',
+            maxHeight: '50px',
             color: 'white',
             '& .MuiOutlinedInput-notchedOutline': {
               borderColor: 'white',
@@ -112,7 +112,7 @@ function EdoModal({ open, onClose }) {
           sx={{
             mt: 1,
             borderRadius: '10px',
-            maxHeight:'50px',
+            maxHeight: '50px',
             color: 'white',
             '& .MuiOutlinedInput-notchedOutline': {
               borderColor: 'white',
