@@ -10,6 +10,7 @@ import Login from '../components/Auth/Login.jsx';
 import Register from '../components/Auth/Registration.jsx';
 import DocumentForm from '../components/Client page/DocumentForm.jsx';
 import OrganizationForm from '../components/Generation/OrganizationForm.jsx';
+import DocumentTemplates from '../components/Settings/DocumentTemplates';
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
               {
                 path: '/settings/organisations',
                 element: <Organisations />,
+              },
+              {
+                path: '/settings/templates',
+                element: <DocumentTemplates />,
               },
             ],
           },
