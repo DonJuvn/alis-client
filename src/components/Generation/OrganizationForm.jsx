@@ -20,10 +20,6 @@ export default function OrganizationForm() {
     padding: '16px',
   };
 
-  const buttonStyle = {
-    margin: '8px',
-  };
-
   return (
     <Box
       style={{
@@ -35,24 +31,33 @@ export default function OrganizationForm() {
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
+        flexDirection: 'column',
+        padding: '10px',
       }}
     >
+      <Typography
+          variant="h4"
+          sx={{fontStyle: 'italic', color: 'white',whiteSpace: 'nowrap', display:'flex',justifyContent: 'flex-start'}}
+        >
+          Создание документа
+        </Typography>
       <Box
         style={{
           ...dashedBorderStyle,
-          width: '30%',
-          height: '630px',
+          width: '480px',
+          height: '600px',
           borderRadius: '15px',
           paddingRight: '20px',
-          marginLeft: 'auto',
-          marginTop: '15px',
+          marginLeft: '900px',
+          marginTop: 'auto',
+          marginBottom:'10px',
           paddingTop: '10px',
         }}
       >
         <Typography
           variant="subtitle1"
           gutterBottom
-          style={{ fontWeight: 'bold', marginLeft: '15px', color: 'white' }}
+          style={{ fontWeight: 'bold', marginLeft: '5px', color: 'white' }}
         >
           Название организации
         </Typography>
@@ -61,7 +66,7 @@ export default function OrganizationForm() {
           size="small"
           style={{
             width: '100%',
-            marginBottom: '15px',
+            marginBottom: '10px',
             color: 'white',
             borderColor: 'white',
           }}
@@ -84,7 +89,7 @@ export default function OrganizationForm() {
         <OutlinedInput
           placeholder="Текстовое поле"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          style={{ width: '100%', marginBottom: '10px', color: 'white' }}
           InputProps={{ className: 'h-28 text-white' }}
           sx={{
             borderRadius: '10px',
@@ -103,7 +108,7 @@ export default function OrganizationForm() {
         <OutlinedInput
           placeholder="Организация"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          style={{ width: '100%', marginBottom: '10px', color: 'white' }}
           inputProps={{
             className: 'h-28 text-white',
           }}
@@ -125,7 +130,7 @@ export default function OrganizationForm() {
         <OutlinedInput
           placeholder="Контрагент"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          style={{ width: '100%', marginBottom: '10px', color: 'white' }}
           inputProps={{
             className: 'h-28 text-white',
           }}
@@ -147,7 +152,7 @@ export default function OrganizationForm() {
         <OutlinedInput
           placeholder="Документ"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          style={{ width: '100%', marginBottom: '10px', color: 'white' }}
           inputProps={{
             className: 'h-28 text-white',
           }}
@@ -169,7 +174,7 @@ export default function OrganizationForm() {
         <OutlinedInput
           placeholder="Сотрудник"
           size="small"
-          style={{ width: '100%', marginBottom: '15px', color: 'white' }}
+          style={{ width: '100%', marginBottom: '10px', color: 'white' }}
           inputProps={{
             className: 'h-28 text-white',
           }}
@@ -234,7 +239,7 @@ export default function OrganizationForm() {
           style={{
             fontWeight: 'bold',
             marginLeft: '5px',
-            marginBottom: '10px',
+            marginBottom: '1px',
             color: 'white',
           }}
         >
@@ -272,8 +277,8 @@ export default function OrganizationForm() {
           variant="contained"
           color="primary"
           style={{
-            ...buttonStyle,
-            width: '340px',
+            height:'40px',
+            width: '390px',
             backgroundColor: '#8767C4',
             borderRadius: '8px',
             marginTop: '25px',
@@ -282,13 +287,14 @@ export default function OrganizationForm() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            color:"white"
           }}
         >
           Сформировать
           <Box
             style={{
-              width: '36px',
-              height: '36px',
+              width: '40px',
+              height: '40px',
               position: 'absolute',
               right: '-50px',
               top: '50%',

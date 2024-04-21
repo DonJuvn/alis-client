@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background: url('.././public/bg.png');
+  /* background: url('.././public/bg.png'); */
 }
 
 a {

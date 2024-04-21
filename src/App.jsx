@@ -3,7 +3,6 @@ import { router } from './routes/Routes';
 import { ThemeProvider } from './utils/Theme';
 import { CssBaseline } from '@mui/material';
 
-
 function App() {
   return (
     <>
@@ -11,8 +10,6 @@ function App() {
         <CssBaseline />
         <RouterProvider router={router} />
       </ThemeProvider>
-
-  
     </>
   );
 }
