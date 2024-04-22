@@ -20,9 +20,9 @@ class DocumentTemplates extends Component {
   initClient = () => {
     window.gapi.client
       .init({
-        apiKey: 'AIzaSyDZoCB90HDXVxtaYIoB8zpwzkViawzKuW8',
+        apiKey: 'AIzaSyAKGg1oIDCvi8yZtY2zmce2V_iiA7VHxlg',
         clientId:
-          '427729469986-2em9q9qlviusuu8c1gu12vbb12ttm0p8.apps.googleusercontent.com',
+          '427729469986-vqktue7kceivm3mtoq8aagauorjnr7mb.apps.googleusercontent.com',
         discoveryDocs: [
           'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
         ],
