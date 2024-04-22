@@ -6,11 +6,9 @@ import { ErrorPage } from '../utils/ErrorPage.jsx';
 import { Editor } from '../components/Editor/Editor.jsx';
 import { Settings } from '../components/Settings/Settings.jsx';
 import { Organisations } from '../components/Organisations';
-import Login from '../components/Auth/Login.jsx';
-import Register from '../components/Auth/Registration.jsx';
 import DocumentForm from '../components/Client page/DocumentForm.jsx';
 import OrganizationForm from '../components/Generation/OrganizationForm.jsx';
-import DocumentTemplates from '../components/Settings/DocumentTemplates';
+import Auth from '../components/Auth/Auth.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -23,14 +21,9 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'login',
-        element: <Login />, // авторизация
+        path: 'auth',
+        element: <Auth />, // авторизация
       },
-      {
-        path: 'register',
-        element: <Register />, // регистрация
-      },
-
       {
         path: '/',
         element: <MainLayout />,
@@ -58,10 +51,6 @@ export const router = createBrowserRouter([
               {
                 path: '/settings/organisations',
                 element: <Organisations />,
-              },
-              {
-                path: '/settings/templates',
-                element: <DocumentTemplates />,
               },
             ],
           },
