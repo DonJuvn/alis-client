@@ -6,7 +6,7 @@ export const Editor = () => {
     <iframe
       src={src}
       style={{
-        borderRadius: '10px',
+        borderRadius: '15px',
       }}
       width="100%"
       height="100%"
