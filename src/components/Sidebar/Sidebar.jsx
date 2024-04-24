@@ -121,7 +121,7 @@ export const Sidebar = () => {
           </List>
           <List>
             {menu.map(item =>
-              canSeeMenuItem
+              canSeeMenuItem()
                 ? item.bottom && (
                     <ListItemButton
                       key={item.id}

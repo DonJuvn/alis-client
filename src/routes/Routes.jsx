@@ -9,6 +9,7 @@ import { Organisations } from '../components/Organisations';
 import DocumentForm from '../components/Client page/DocumentForm.jsx';
 import OrganizationForm from '../components/Generation/OrganizationForm.jsx';
 import Auth from '../components/Auth/Auth.jsx';
+import ProtectedRoute from '../components/Auth/ProtectedRoute.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/',
-        element: <MainLayout />,
+        element: (
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        ),
         children: [
           {
             path: '/editor',
