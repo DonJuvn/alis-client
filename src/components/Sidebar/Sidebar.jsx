@@ -20,6 +20,15 @@ export const Sidebar = () => {
   const { isOpen, toggleSidebar } = useSidebar();
   const { darkMode } = useTheme();
 
+  const canSeeMenuItem = () => {
+    console.log(localStorage.getItem('isAdmin') == 'true');
+    if (localStorage.getItem('isAdmin') == 'true') {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <Paper>
       <Stack
@@ -111,36 +120,37 @@ export const Sidebar = () => {
             )}
           </List>
           <List>
-            {menu.map(
-              item =>
-                item.bottom && (
-                  <ListItemButton
-                    key={item.id}
-                    component={Link}
-                    to={item.link ?? ''}
-                    selected={pathname === item.link}
-                    sx={{
-                      padding: '5px 5px',
-                      margin: '10px 0',
-                      borderRadius: 3,
-                      '&.Mui-selected ': {
-                        color: 'white',
-                        backgroundColor: '#323DA7',
-                      },
-                      '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                        fill: 'white',
-                      },
-                      '& .MuiListItemText-primary': {
-                        fontSize: '0.8rem',
-                      },
-                    }}
-                  >
-                    <ListItemIcon sx={{ minWidth: '30px' }}>
-                      {item.icon}
-                    </ListItemIcon>
-                    {isOpen && <ListItemText primary={item.title} />}
-                  </ListItemButton>
-                ),
+            {menu.map(item =>
+              canSeeMenuItem
+                ? item.bottom && (
+                    <ListItemButton
+                      key={item.id}
+                      component={Link}
+                      to={item.link ?? ''}
+                      selected={pathname === item.link}
+                      sx={{
+                        padding: '5px 5px',
+                        margin: '10px 0',
+                        borderRadius: 3,
+                        '&.Mui-selected ': {
+                          color: 'white',
+                          backgroundColor: '#323DA7',
+                        },
+                        '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
+                          fill: 'white',
+                        },
+                        '& .MuiListItemText-primary': {
+                          fontSize: '0.8rem',
+                        },
+                      }}
+                    >
+                      <ListItemIcon sx={{ minWidth: '30px' }}>
+                        {item.icon}
+                      </ListItemIcon>
+                      {isOpen && <ListItemText primary={item.title} />}
+                    </ListItemButton>
+                  )
+                : null,
             )}
           </List>
         </Stack>

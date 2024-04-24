@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'auth',
-        element: <Auth />, // авторизация
+        element: <Auth />,
       },
       {
         path: '/',

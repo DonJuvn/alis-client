@@ -15,13 +15,17 @@
 		"@mui/icons-material": "^5.15.13",
 		"@mui/lab": "^5.0.0-alpha.168",
 		"@mui/material": "^5.15.13",
+		"@react-oauth/google": "^0.12.1",
+		"@reduxjs/toolkit": "^2.2.3",
 		"axios": "^1.6.7",
 		"dotenv": "^16.4.5",
 		"google-api-javascript-client": "^0.1.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.51.2",
-		"react-router-dom": "^6.22.1"
+		"react-redux": "^9.1.1",
+		"react-router-dom": "^6.22.1",
+		"redux": "^5.0.1"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.56",
