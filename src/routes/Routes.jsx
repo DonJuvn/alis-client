@@ -8,7 +8,7 @@ import { Settings } from '../components/Settings/Settings.jsx';
 import { Organisations } from '../components/Organisations';
 import DocumentForm from '../components/Client page/DocumentForm.jsx';
 import OrganizationForm from '../components/Generation/OrganizationForm.jsx';
-import Auth from '../components/Auth/Auth2.jsx';
+import Auth from '../components/Auth/Auth.jsx';
 
 export const router = createBrowserRouter([
   {
