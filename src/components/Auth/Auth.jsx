@@ -5,6 +5,7 @@ import { Google } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setEmail, setAccessToken } from '../../store/UserSlice';
+import { dataSet } from '../../Enum/AdminList';
 
 function Auth() {
   const [user, setUser] = useState(null);
@@ -34,8 +35,15 @@ function Auth() {
           },
         )
         .then(res => {
-          localStorage.setItem('userEmail', res.data.email);
-          dispatch(setEmail(res.data.email)); // сохранение email
+          const userEmail = res.data.email;
+          localStorage.setItem('userEmail', userEmail);
+
+          if (dataSet.has(userEmail)) {
+            localStorage.setItem('isAdmin', true);
+          } else {
+            localStorage.setItem('isAdmin', false);
+          }
+          dispatch(setEmail(userEmail)); // сохранение email
           navigate('/');
         })
         .catch(err => console.log(err));
