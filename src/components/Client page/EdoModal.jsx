@@ -141,6 +141,7 @@ function EdoModal({ open, onClose }) {
             sx={{
               mr: '25px',
               backgroundColor: '#8767C4',
+              color: 'white',
               width: '300px',
               height: '40px',
               borderRadius: '8px',
