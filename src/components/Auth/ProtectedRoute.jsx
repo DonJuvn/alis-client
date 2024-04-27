@@ -1,17 +1,13 @@
-// import { useSelector } from 'react-redux';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { router } from '../../routes';
 
 // eslint-disable-next-line react/prop-types
-const ProtectedRoute = ({ children }) => {
-  //   const isAuthorized = useSelector(state => state.user.isAuthorized);
-  const isAuthorized = false;
-  const location = useLocation();
+const ProtectedRoute = () => {
+  const navigate = useNavigate();
 
-  if (!isAuthorized) {
-    return <Navigate to="/auth" state={{ from: location }} replace />;
-  }
+  navigate('/settings');
 
-  return children;
+  return;
 };
 
 export default ProtectedRoute;

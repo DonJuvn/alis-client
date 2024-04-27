@@ -1,8 +1,18 @@
 import { Google } from '@mui/icons-material';
-import useAuth from './UseAuth';
+import { useGoogleLogin } from '@react-oauth/google';
+import { useDispatch } from 'react-redux';
+import { authorizeUser } from '../../store/UserSlice';
 
 function Auth() {
-  const login = useAuth();
+  const dispatch = useDispatch();
+  const login = useGoogleLogin({
+    onSuccess: codeResponse => {
+      console.log(codeResponse);
+      dispatch(authorizeUser(codeResponse));
+      return codeResponse;
+    },
+    onError: error => console.log('Login Failed:', error),
+  });
 
   return (
     <div className="auth">

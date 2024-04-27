@@ -1,37 +1,53 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
-  user: localStorage.getItem('userEmail') ?? null,
-  isAuthorized: localStorage.getItem('isAuthorized') ?? false,
+  user: {},
+  isAuthorized: false,
   isLoading: false,
-  access_token: localStorage.getItem('accessToken') ?? null,
+  access_token: null,
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    setEmail: (state, action) => {
-      state.user = action.payload;
-      localStorage.setItem('userEmail', action.payload);
-    },
-    setAccessToken: (state, action) => {
-      state.access_token = action.payload;
-      console.log(action.payload);
-      localStorage.setItem('accessToken', action.payload);
-    },
-    isAdmin: (state, action) => {
-      state.access_token = action.payload;
-      console.log(action.payload);
-      localStorage.setItem('isAdmin', action.payload);
-    },
-    setIsAuthorized: (state, action) => {
-      state.isAuthorized = action.payload;
-      console.log(action.payload);
-      localStorage.setItem('isAuthorized', action.payload);
-    },
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(authorizeUser.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(authorizeUser.fulfilled, (state, action) => {
+        const { id, given_name = '', email = '' } = action.payload;
+        state.isLoading = false;
+        state.isAuthorized = true;
+        console.log(action.payload);
+        state.user = {
+          id: id,
+          email: email,
+          given_name: given_name,
+        };
+      });
   },
 });
+
+export const authorizeUser = createAsyncThunk(
+  'user/authorize',
+  // eslint-disable-next-line no-unused-vars
+  async (user, thunkAPI) => {
+    const response = await axios.get(
+      `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+      {
+        headers: {
+          Authorization: `Bearer ${user.access_token}`,
+          Accept: 'application/json',
+        },
+      },
+    );
+
+    return response.data;
+  },
+);
 
 export const { setEmail, setAccessToken, isAdmin, setIsAuthorized } =
   userSlice.actions;

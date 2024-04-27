@@ -26,6 +26,7 @@ const style = {
   padding: '25px 20px 0 20px',
 };
 
+// eslint-disable-next-line react/prop-types
 function EdoModal({ open, onClose }) {
   const [organization, setOrganization] = React.useState('');
 
