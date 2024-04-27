@@ -16,7 +16,7 @@ export default [
     id: 'cash-register',
     title: 'Главное',
     icon: <Home />,
-    link: '/',
+    link: '/home',
   },
   {
     id: 'simple-income',

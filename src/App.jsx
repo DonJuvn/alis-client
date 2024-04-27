@@ -8,6 +8,7 @@ import Auth from './Auth';
 import { NotFound } from './pages/NotFound';
 import { ErrorPage } from './pages/ErrorPage';
 import { MainLayout } from './layout/MainLayout';
+import { ThemeProvider } from './layout/ThemeProvider';
 
 function App() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -20,7 +21,7 @@ function App() {
   }, [isAuthorized]);
 
   return (
-    <>
+    <ThemeProvider>
       <CssBaseline />
       <Routes>
         <Route
@@ -37,7 +38,7 @@ function App() {
         <Route path="/404" name="Page 404" element={<NotFound />} />
         <Route path="/*" name="Home" element={<MainLayout />} />
       </Routes>
-    </>
+    </ThemeProvider>
   );
 }
 
