@@ -1,11 +1,16 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import { Google } from '@mui/icons-material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { authorizeUser } from '../store/UserSlice';
+import { useEffect } from 'react';
 
 function Auth() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isAuthorized = useSelector(state => state.user.isAuthorized);
+
   const login = useGoogleLogin({
     onSuccess: codeResponse => {
       console.log(codeResponse);
@@ -13,6 +18,10 @@ function Auth() {
       return codeResponse;
     },
     onError: error => console.log('Login Failed:', error),
+  });
+
+  useEffect(() => {
+    if (isAuthorized) navigate('/documents');
   });
 
   return (

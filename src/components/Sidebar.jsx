@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Stack,
@@ -10,46 +11,35 @@ import {
 import { ArrowRight } from '@mui/icons-material';
 
 import { useNavigation } from '../hooks/useNavigation';
-import { useSidebar } from '../hooks/useSidebar';
-import { useTheme } from '../hooks/useTheme';
 
 const sidebarWidth = 320;
 
 export const Sidebar = () => {
   const { pathname } = useLocation();
   const { menu } = useNavigation();
-  const { isOpen, toggleSidebar } = useSidebar();
-  const { darkMode } = useTheme();
-
-  const canSeeMenuItem = () => {
-    console.log(localStorage.getItem('isAdmin') == 'true');
-    if (localStorage.getItem('isAdmin') == 'true') {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const { isExtended, setIsExtended } = useState(false);
+  const isDarkMode = true;
 
   return (
     <Paper>
       <Stack
         sx={{
-          minWidth: isOpen ? sidebarWidth : 75,
+          minWidth: isExtended ? sidebarWidth : 75,
           transition: '0.3s',
           borderRadius: '10px',
           padding: '20px 20px',
         }}
       >
         <img
-          onClick={toggleSidebar}
+          onClick={() => setIsExtended(prev => !prev)}
           style={{
             width: '90px',
             maxHeight: '40px',
             margin: '20px 0 5px',
           }}
           src={
-            !darkMode
-              ? isOpen
+            !isDarkMode
+              ? isExtended
                 ? '/imgLogo.png'
                 : '/imgLogoWithoutName.png'
               : '/imgLogoWhite.png'
@@ -110,10 +100,10 @@ export const Sidebar = () => {
                     >
                       {item.icon}
                     </ListItemIcon>
-                    {isOpen && <ListItemText primary={item.title} />}
+                    {isExtended && <ListItemText primary={item.title} />}
                     <ArrowRight
                       style={{
-                        display: isOpen ? 'flex' : 'none',
+                        display: isExtended ? 'flex' : 'none',
                       }}
                     />
                   </ListItemButton>
@@ -121,37 +111,36 @@ export const Sidebar = () => {
             )}
           </List>
           <List>
-            {menu.map(item =>
-              canSeeMenuItem()
-                ? item.bottom && (
-                    <ListItemButton
-                      key={item.id}
-                      component={Link}
-                      to={item.link ?? ''}
-                      selected={pathname === item.link}
-                      sx={{
-                        padding: '5px 5px',
-                        margin: '10px 0',
-                        borderRadius: 3,
-                        '&.Mui-selected ': {
-                          color: 'white',
-                          backgroundColor: '#323DA7',
-                        },
-                        '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
-                          fill: 'white',
-                        },
-                        '& .MuiListItemText-primary': {
-                          fontSize: '0.8rem',
-                        },
-                      }}
-                    >
-                      <ListItemIcon sx={{ minWidth: '30px' }}>
-                        {item.icon}
-                      </ListItemIcon>
-                      {isOpen && <ListItemText primary={item.title} />}
-                    </ListItemButton>
-                  )
-                : null,
+            {menu.map(
+              item =>
+                item.bottom && (
+                  <ListItemButton
+                    key={item.id}
+                    component={Link}
+                    to={item.link ?? ''}
+                    selected={pathname === item.link}
+                    sx={{
+                      padding: '5px 5px',
+                      margin: '10px 0',
+                      borderRadius: 3,
+                      '&.Mui-selected ': {
+                        color: 'white',
+                        backgroundColor: '#323DA7',
+                      },
+                      '&.Mui-selected .css-i4bv87-MuiSvgIcon-root': {
+                        fill: 'white',
+                      },
+                      '& .MuiListItemText-primary': {
+                        fontSize: '0.8rem',
+                      },
+                    }}
+                  >
+                    <ListItemIcon sx={{ minWidth: '30px' }}>
+                      {item.icon}
+                    </ListItemIcon>
+                    {isExtended && <ListItemText primary={item.title} />}
+                  </ListItemButton>
+                ),
             )}
           </List>
         </Stack>

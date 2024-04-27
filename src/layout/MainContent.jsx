@@ -12,22 +12,17 @@ const MainContent = () => {
     <Routes>
       {routes.map((route, idx) => {
         return (
-          route.element && (
-            <Route
-              key={idx}
-              path={route.path}
-              name={route.name}
-              exact={true}
-              element={
-                <ProtectedRoute
-                  isAuthorized={isAuthorized}
-                  redirectPath="/login"
-                >
-                  <route.element />
-                </ProtectedRoute>
-              }
-            />
-          )
+          <Route
+            key={idx}
+            path={route.path}
+            name={route.name}
+            exact={true}
+            element={
+              <ProtectedRoute isAuthorized={isAuthorized} redirectPath="/login">
+                {route.element}
+              </ProtectedRoute>
+            }
+          />
         );
       })}
     </Routes>
