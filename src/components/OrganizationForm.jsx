@@ -1,4 +1,3 @@
-
 import {
   Button,
   Box,
@@ -11,7 +10,9 @@ import {
 } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Visibility } from '@mui/icons-material';
-import { Editor } from '../Editor/Editor.jsx';
+
+import { Editor } from './Editor.jsx';
+
 const WhiteArrowDropDownIcon = () => (
   <ArrowDropDownIcon style={{ color: 'white' }} />
 );
@@ -69,12 +70,12 @@ export default function OrganizationForm() {
       <hr />
 
       <Box
-        style={{ 
+        style={{
           padding: '1px',
-          width: '790px', 
-          height: '550px', 
-          marginTop:'10px',
-          marginLeft:'40px',
+          width: '790px',
+          height: '550px',
+          marginTop: '10px',
+          marginLeft: '40px',
         }}
       >
         <Editor />
@@ -107,8 +108,7 @@ export default function OrganizationForm() {
           </Select>
         </FormControl>
       </Box>
-      
-     
+
       <Box
         style={{
           ...dashedBorderStyle,
@@ -379,9 +379,7 @@ export default function OrganizationForm() {
             </IconButton>
           </Box>
         </Button>
-        
       </Box>
-      
     </Box>
   );
 }

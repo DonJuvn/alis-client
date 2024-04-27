@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
-import { menu } from './menu';
+
+import menuItems from '../constants/menuItems';
 
 export const useNavigation = () => {
-  const [currentMenu, setCurrentMenu] = useState(menu);
+  const [currentMenu, setCurrentMenu] = useState(menuItems);
   const parentMenu = useRef(null);
 
   const goToSubmenu = submenu => {
