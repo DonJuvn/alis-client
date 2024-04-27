@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 // routes config
 import routes from '../routes';
-import ProtectedRoute from '../routes/ProtectedRoute';
 
 const MainContent = () => {
   return (
@@ -14,7 +13,7 @@ const MainContent = () => {
             path={route.path}
             name={route.name}
             exact={true}
-            element={<ProtectedRoute>{route.element}</ProtectedRoute>}
+            element={route.element}
           />
         );
       })}
