@@ -15,4 +15,12 @@ export default [
     path: '/settings',
     element: <Settings />,
   },
+  {
+    element: <h1>home</h1>,
+    path: '/home',
+  },
+  {
+    element: <h1>docuements</h1>,
+    path: '/documents',
+  },
 ];

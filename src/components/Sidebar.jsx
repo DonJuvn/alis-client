@@ -8,17 +8,85 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
-import { ArrowRight } from '@mui/icons-material';
-
-import { useNavigation } from '../hooks/useNavigation';
+import {
+  Home,
+  ArrowRight,
+  ErrorOutlineOutlined,
+  DescriptionOutlined,
+  SwapHorizOutlined,
+  ContentPasteGoOutlined,
+  PeopleOutlineOutlined,
+  PermIdentity,
+  FolderSharedOutlined,
+  Settings,
+} from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 
 const sidebarWidth = 320;
 
+const menuItems = [
+  {
+    id: 'cash-register',
+    title: 'Главное',
+    icon: <Home />,
+    link: '/home',
+  },
+  {
+    id: 'simple-income',
+    title: 'Руководителю',
+    icon: <PermIdentity />,
+    link: '/operator',
+  },
+  {
+    id: 'payments',
+    title: 'Корпоративные документы',
+    icon: <FolderSharedOutlined />,
+    link: '/corporate-documents',
+  },
+  {
+    id: 'products',
+    title: 'Покупатели/Поставщики',
+    icon: <PeopleOutlineOutlined />,
+    link: '/vendors',
+  },
+  {
+    id: 'trading',
+    title: 'Приказы',
+    icon: <ContentPasteGoOutlined />,
+    link: '/orders',
+  },
+  {
+    id: 'products-1',
+    title: 'Трудовые отнощения',
+    icon: <SwapHorizOutlined />,
+    link: '/employees',
+  },
+  {
+    id: 'products-2',
+    title: 'Справочники',
+    icon: <DescriptionOutlined />,
+    link: '/directories',
+  },
+  {
+    id: 'products-3',
+    title: 'Отчеты',
+    icon: <ErrorOutlineOutlined />,
+    link: '/reports',
+  },
+  {
+    id: 'settings',
+    title: 'Настройки',
+    icon: <Settings />,
+    link: '/settings/',
+    bottom: true,
+  },
+];
+
 export const Sidebar = () => {
   const { pathname } = useLocation();
-  const { menu } = useNavigation();
-  const { isExtended, setIsExtended } = useState(false);
-  const isDarkMode = true;
+  const selectedTheme = useSelector(state => state.theme.selectedTheme);
+  const { isExtended, setIsExtended } = useState(true);
+  const isDarkMode = selectedTheme === 'dark';
 
   return (
     <Paper>
@@ -66,7 +134,7 @@ export const Sidebar = () => {
           }}
         >
           <List>
-            {menu.map(
+            {menuItems.map(
               item =>
                 !item.bottom && (
                   <ListItemButton
@@ -111,7 +179,7 @@ export const Sidebar = () => {
             )}
           </List>
           <List>
-            {menu.map(
+            {menuItems.map(
               item =>
                 item.bottom && (
                   <ListItemButton
