@@ -22,8 +22,15 @@ git clone https://github.com/Bashkanitto/ALIS-client.git
 cd ALIS-client
 npm install
 npm run dev
+```
 
+### Подключение backend
 
+```bash
+git clone https://github.com/Nurrss/soyleBackend
+cd soyleBackend
+npm install
+npm run dev
 ```
 
 Создайте .env файл с последующим содержанием
