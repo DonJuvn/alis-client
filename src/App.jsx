@@ -16,7 +16,6 @@ function App() {
       <GoogleOAuthProvider clientId={clientId}>
         <Auth />
       </GoogleOAuthProvider>
-
       <Routes>
         <Route path="/*" name="Home" element={<MainLayout />} />
         <Route exact path="/login" name="Login Page" element={<Auth />} />
