@@ -1,3 +1,4 @@
+import { Fragment, useState } from 'react';
 import {
   Button,
   IconButton,
@@ -11,7 +12,7 @@ import {
 } from '@mui/material';
 import { Delete, Visibility } from '@mui/icons-material';
 import DownloadIcon from '@mui/icons-material/Download';
-import { Fragment, useState } from 'react';
+
 import EdoModal from './EdoModal.jsx';
 
 const CustomTable = () => {

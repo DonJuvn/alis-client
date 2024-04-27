@@ -1,7 +1,8 @@
-import { Google } from '@mui/icons-material';
 import { useGoogleLogin } from '@react-oauth/google';
+import { Google } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
-import { authorizeUser } from '../../store/UserSlice';
+
+import { authorizeUser } from '../store/UserSlice';
 
 function Auth() {
   const dispatch = useDispatch();

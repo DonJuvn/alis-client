@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom';
 import {
   Stack,
   List,
@@ -6,11 +7,11 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
-import { useNavigation } from './useNavigation';
-import { useSidebar } from './useSidebar';
 import { ArrowRight } from '@mui/icons-material';
-import { useTheme } from '@utils/Theme';
+
+import { useNavigation } from '../hooks/useNavigation';
+import { useSidebar } from '../hooks/useSidebar';
+import { useTheme } from '../hooks/useTheme';
 
 const sidebarWidth = 320;
 

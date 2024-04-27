@@ -2,7 +2,7 @@ import { Paper } from '@mui/material';
 
 import { Box } from '@mui/material';
 
-export const Settings = () => {
+const Settings = () => {
   return (
     <Box flexDirection="row">
       <Paper
@@ -14,3 +14,5 @@ export const Settings = () => {
     </Box>
   );
 };
+
+export default Settings;

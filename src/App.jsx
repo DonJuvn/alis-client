@@ -1,39 +1,28 @@
-import { ThemeProvider } from './utils/Theme';
 import { CssBaseline } from '@mui/material';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { useSelector } from 'react-redux';
-import Auth from './components/Auth/Auth';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
-import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { Settings } from './components/Settings/Settings';
-import { useEffect } from 'react';
+
+import Auth from './Auth';
+import { NotFound } from './pages/NotFound';
+import { ErrorPage } from './pages/ErrorPage';
+import { MainLayout } from './layout/MainLayout';
 
 function App() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-  const navigate = useNavigate();
-
-  const isAuthorized = useSelector(state => state.user.isAuthorized);
-
-  useEffect(() => {
-    isAuthorized && navigate('/settings');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
-    <>
-      <ThemeProvider>
-        <GoogleOAuthProvider clientId={clientId}>
-          <CssBaseline />
-          {isAuthorized ? (
-            <Routes>
-              <Route path="./settings" element={<Settings />}></Route>
-            </Routes>
-          ) : (
-            <Auth />
-          )}
-        </GoogleOAuthProvider>
-      </ThemeProvider>
-    </>
+    <HashRouter>
+      <CssBaseline />
+      <GoogleOAuthProvider clientId={clientId}>
+        <Auth />
+      </GoogleOAuthProvider>
+      <Routes>
+        <Route path="/*" name="Home" element={<MainLayout />} />
+        <Route exact path="/login" name="Login Page" element={<Auth />} />
+        <Route exact path="/500" name="Page 500" element={<ErrorPage />} />
+        <Route path="/404" name="Page 404" element={<NotFound />} />
+      </Routes>
+    </HashRouter>
   );
 }
 

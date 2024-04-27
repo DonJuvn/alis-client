@@ -11,7 +11,7 @@ import {
   NoteAdd,
 } from '@mui/icons-material';
 
-export const menu = [
+export default [
   {
     id: 'cash-register',
     title: 'Главное',
