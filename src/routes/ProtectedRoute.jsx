@@ -1,27 +1,21 @@
 import PropTypes from 'prop-types';
 import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const ProtectedRoute = ({
-  isAuthorized,
-  redirectPath = '/login',
-  children,
-}) => {
-  const isLoading = true;
+const ProtectedRoute = ({ children }) => {
+  const isAuthorized = useSelector(state => state.user.isAuthorized);
+  const isAuthLoading = useSelector(state => state.user.isLoading);
+
+  if (isAuthLoading) return <h1>Loading</h1>;
 
   if (!isAuthorized) {
-    return <Navigate to={redirectPath} replace />;
-  }
-
-  if (isLoading) {
-    return <h1>Loading</h1>;
+    return <Navigate to={'./login'} replace />;
   }
 
   return children ? children : <Outlet />;
 };
 
 ProtectedRoute.propTypes = {
-  isAuthorized: PropTypes.bool,
-  redirectPath: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

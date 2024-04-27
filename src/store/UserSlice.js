@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState = {
   user: {},
   isAuthorized: false,
-  isLoading: false,
+  isLoading: true,
   access_token: null,
 };
 
@@ -13,21 +13,17 @@ export const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder
-      .addCase(authorizeUser.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(authorizeUser.fulfilled, (state, action) => {
-        const { id, given_name = '', email = '' } = action.payload;
-        state.isLoading = false;
-        state.isAuthorized = true;
-        console.log(action.payload);
-        state.user = {
-          id: id,
-          email: email,
-          given_name: given_name,
-        };
-      });
+    builder.addCase(authorizeUser.fulfilled, (state, action) => {
+      const { id, given_name = '', email = '' } = action.payload;
+      state.isLoading = false;
+      state.isAuthorized = true;
+      console.log(action.payload);
+      state.user = {
+        id: id,
+        email: email,
+        given_name: given_name,
+      };
+    });
   },
 });
 
