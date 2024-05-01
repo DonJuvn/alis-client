@@ -1,8 +1,13 @@
-import Settings from '../components/Settings';
+import Settings from '../pages/Settings';
 import DocumentForm from '../components/DocumentForm.jsx';
 import OrganizationForm from '../components/OrganizationForm.jsx';
+import TemplateGeneration from '../pages/TemplateGeneration.jsx';
 
 export default [
+  {
+    path: '/home',
+    element: <h1>home</h1>,
+  },
   {
     path: 'documents',
     element: <DocumentForm />,
@@ -11,16 +16,13 @@ export default [
     path: 'generation',
     element: <OrganizationForm />,
   },
+
   {
     path: '/settings',
     element: <Settings />,
   },
   {
-    element: <h1>home</h1>,
-    path: '/home',
-  },
-  {
-    element: <h1>docuements</h1>,
-    path: '/documents',
+    path: '/template-generation',
+    element: <TemplateGeneration />,
   },
 ];
