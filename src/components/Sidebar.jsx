@@ -10,7 +10,7 @@ import {
   PermIdentity,
   FolderSharedOutlined,
   Settings,
-  NoteAddOutlinedIcon,
+  EditNoteOutlined,
 } from '@mui/icons-material';
 import LinkItem from './LinkItem';
 
@@ -72,7 +72,7 @@ const menuItems = [
   {
     id: 'template-generation',
     title: 'Генерация шаблонов',
-    icon: <NoteAddOutlinedIcon />,
+    icon: <EditNoteOutlined />,
     link: '/template-generation/',
   },
 ];
@@ -84,7 +84,7 @@ export const Sidebar = () => {
     <Paper>
       <Stack
         sx={{
-          width: 320,
+          width: 260,
           transition: '0.3s',
           borderRadius: '10px',
           padding: '20px',

@@ -51,7 +51,6 @@ h1 {
 }
 
 .sidebar-wrapper {
-  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,4 +74,33 @@ h1 {
   color: #fff;
   background-color: #323da7;
   fill: #fff;
+}
+
+.template-generation-wrapper {
+  border: 1px solid;
+  border-image-source: linear-gradient(
+    101.78deg,
+    rgba(231, 230, 249, 0.25) 1.24%,
+    rgba(212, 210, 243, 0.15) 100%
+  );
+}
+
+.document-select-wrapper {
+  padding: 12px;
+  border-radius: 16px;
+  background-color: grey;
+  border: 1px dashed #333;
+}
+
+.template-generation-working-zone {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px;
+}
+
+.mapping-inputs-wrapper {
+  padding: 12px;
+  border-radius: 16px;
+  background-color: grey;
+  border: 1px dashed #333;
 }

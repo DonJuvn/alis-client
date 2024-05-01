@@ -17,7 +17,6 @@ export const userSlice = createSlice({
       const { id, given_name = '', email = '' } = action.payload;
       state.isLoading = false;
       state.isAuthorized = true;
-      console.log(action.payload);
       state.user = {
         id: id,
         email: email,

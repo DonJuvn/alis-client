@@ -12,7 +12,7 @@ function Auth() {
   const login = useGoogleLogin({
     onSuccess: codeResponse => {
       dispatch(authorizeUser(codeResponse));
-      navigate('/settings', { replace: true });
+      navigate('/home', { replace: true });
     },
     onError: error => console.log('Login Failed:', error),
   });
