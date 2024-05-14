@@ -40,6 +40,10 @@ h2 {
   font-size: 2.0em;
   line-height: 1.1;
 }
+h3{
+  font-size: 1.2em;
+  line-height: 1.1;
+}
 
 .auth {
   width: 100%;
@@ -126,7 +130,14 @@ h2 {
 }
 
 .template-generation-wrapper {
+  height: 100%;
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 10px;
   border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border-image-source: linear-gradient(
     101.78deg,
     rgba(231, 230, 249, 0.25) 1.24%,
@@ -134,13 +145,92 @@ h2 {
   );
 }
 
+.template-generation-block-wrapper{
+  display: flex;
+  gap: 20px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.template-generation-block{
+  padding: 20px;
+  height: 240px;
+  width: 270px;
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.template-generation-block p{
+  margin-bottom: 10px;
+}
+
+.template-generation-block button{
+  padding: 5px 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  align-items: center;
+  background: var(--color-primary);
+}
+
+.template-generation-wrapper select{
+  color: white;
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid grey;
+}
+
+.template-create{
+  border: 1px dashed grey;
+  height: 220px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+}
+
+.template-create:hover{
+  background: var(--bg-card);
+}
+
 .document-select-wrapper {
   padding: 12px;
   border-radius: 16px;
-  background-color: grey;
-  border: 1px dashed #333;
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-card);
+}
+.document-select-wrapper ul {
+  display: flex; 
+  justify-content: space-between;
+  padding: 10px 10px;
+  font-weight: bold;
+  border-bottom: 1px solid grey;
 }
 
+
+.document-select {
+  width: 100%;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey ;
+}
+
+.document-select:hover {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey ;
+  background: var(--bg-card);
+}
 .template-generation-working-zone {
   display: grid;
   grid-template-columns: 60% 40%;
