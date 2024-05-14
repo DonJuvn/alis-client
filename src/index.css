@@ -242,7 +242,7 @@ h3{
 .mapping-inputs-wrapper {
   padding: 12px;
   border-radius: 16px;
-  background-color: grey;
+  background-color: var(--bg-card);
   border: 1px dashed #333;
 }
 
