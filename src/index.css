@@ -69,7 +69,7 @@ h2 {
   align-items: center;
 }
 
-.auth-text h2, p{
+.auth-text h2, .auth-text p{
   animation: slide 1s ;
 }
 
