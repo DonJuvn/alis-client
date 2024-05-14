@@ -127,6 +127,8 @@ h2 {
 
 .template-generation-wrapper {
   border: 1px solid;
+  overflow: scroll;
+  scrollbar-width: none;
   border-image-source: linear-gradient(
     101.78deg,
     rgba(231, 230, 249, 0.25) 1.24%,
@@ -153,6 +155,20 @@ h2 {
   background-color: grey;
   border: 1px dashed #333;
 }
+
+.mapping-inputs {
+  display: flex;
+  flex-direction: column;
+}
+.mapping-inputs input{
+  margin-bottom: 10px;
+  background: transparent;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
 
 
 @keyframes slide {
