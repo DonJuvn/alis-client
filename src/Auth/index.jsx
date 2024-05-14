@@ -1,5 +1,5 @@
 import { useGoogleLogin } from '@react-oauth/google';
-import { Google } from '@mui/icons-material';
+import { Facebook, Google } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,11 +20,21 @@ function Auth() {
   return (
     <div className="auth">
       <div className="auth-form">
-        <h2>Войдите что бы продолжить</h2>
-        <button className="auth-button" onClick={login}>
-          <Google />
-          Sign in with Google 🚀
-        </button>
+        <div className="auth-text">
+          <h2>Авторизация</h2>
+          <p>Войдите что бы продолжить</p>
+        </div>
+        <hr />
+        <div className="auth-button-wrapper">
+          <button className="auth-button" onClick={login}>
+            <Google />
+            Sign in with Google 🚀
+          </button>
+          <button className="auth-button" onClick={login}>
+            <Facebook />
+            Sign in with Facebook 🚀
+          </button>
+        </div>
       </div>
     </div>
   );
