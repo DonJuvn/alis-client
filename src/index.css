@@ -145,13 +145,15 @@ h3{
     rgba(231, 230, 249, 0.25) 1.24%,
     rgba(212, 210, 243, 0.15) 100%
   );
+  width: calc(100% - 320px);
 }
 
-.template-generation-block-wrapper{
-  display: flex;
-  gap: 20px;
-  overflow: scroll;
-  scrollbar-width: none;
+.document-select-wrapper {
+  padding: 12px;
+  border-radius: 16px;
+  background-color: var(--bg-body);
+  border: 3px dashed lightgrey;
+  height: 85vh;
 }
 
 .template-generation-block{
@@ -242,8 +244,21 @@ h3{
 .mapping-inputs-wrapper {
   padding: 12px;
   border-radius: 16px;
+<<<<<<< HEAD
   background-color: var(--bg-card);
   border: 1px dashed #333;
+=======
+  background-color: var(--bg-body);
+  border: 3px dashed lightgrey;
+}
+
+.add-mapping-input-button {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+>>>>>>> b0628b4 (savE)
 }
 
 .mapping-inputs {
