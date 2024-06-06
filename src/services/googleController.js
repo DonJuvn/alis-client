@@ -1,5 +1,5 @@
-const CLIENT_ID = '<YOUR_CLIENT_ID>';
-const API_KEY = '<YOUR_API_KEY>';
+const CLIENT_ID = '581471867184-07ul701dc1v1pi6dv22cvh4guk5o8pgt.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyB9nF4kgBh6Cr0q7YuTrK6SIiwO9JvCUGg';
 
 // Discovery doc URL for APIs used by the quickstart
 const DISCOVERY_DOC =
