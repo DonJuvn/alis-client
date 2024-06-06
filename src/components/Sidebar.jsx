@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Paper, Stack } from '@mui/material';
 import {
   Home,
@@ -18,8 +18,14 @@ const menuItems = [
   {
     id: 'cash-register',
     title: 'Главное',
-    icon: <Home />,
+    icon: <EditNoteOutlined />,
     link: '/home',
+  },
+  {
+    id: 'create',
+    title: 'Создать документ',
+    icon: <Home />,
+    link: '/create-doc',
   },
   {
     id: 'simple-income',
@@ -69,12 +75,12 @@ const menuItems = [
     icon: <Settings />,
     link: '/settings/',
   },
-  {
-    id: 'template-generation',
-    title: 'Генерация шаблонов',
-    icon: <EditNoteOutlined />,
-    link: '/template-generation/',
-  },
+  // {
+  //   id: 'template-generation',
+  //   title: 'Генерация шаблонов',
+  //   icon: <EditNoteOutlined />,
+  //   link: '/template-generation/',
+  // },
 ];
 
 export const Sidebar = () => {
@@ -90,6 +96,9 @@ export const Sidebar = () => {
           padding: '20px',
         }}
       >
+        <Link to="/">
+          <img src="../../public/imgLogoWhite.png" alt="" />
+        </Link>
         {menuItems.map(item => (
           <LinkItem
             key={item.id}
