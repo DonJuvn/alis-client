@@ -244,10 +244,6 @@ h3{
 .mapping-inputs-wrapper {
   padding: 12px;
   border-radius: 16px;
-<<<<<<< HEAD
-  background-color: var(--bg-card);
-  border: 1px dashed #333;
-=======
   background-color: var(--bg-body);
   border: 3px dashed lightgrey;
 }
@@ -258,7 +254,6 @@ h3{
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #fff;
->>>>>>> b0628b4 (savE)
 }
 
 .mapping-inputs {
