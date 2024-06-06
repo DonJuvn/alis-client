@@ -1,7 +1,8 @@
+import React, { useEffect } from 'react';
+import { gapi } from 'gapi-script';
 import { CssBaseline } from '@mui/material';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Auth from './Auth';
@@ -9,16 +10,26 @@ import { NotFound } from './pages/NotFound';
 import { ErrorPage } from './pages/ErrorPage';
 import { MainLayout } from './layout/MainLayout';
 import { ThemeProvider } from './layout/ThemeProvider';
+import DocumentEditor from './main/DocumentEditor';
 
 function App() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
   const navigate = useNavigate();
-
-  const isAuthorized = useSelector(state => state.user.isAuthorized);
+  const isAuthorized = useSelector((state) => state.user.isAuthorized);
 
   useEffect(() => {
     if (!isAuthorized) navigate('../login', { replace: true });
   }, [isAuthorized]);
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: 'https://www.googleapis.com/auth/drive.file',
+      });
+    }
+    gapi.load('client:auth2', start);
+  }, [clientId]);
 
   return (
     <ThemeProvider>
@@ -34,6 +45,7 @@ function App() {
             </GoogleOAuthProvider>
           }
         />
+        <Route exact path="/create" name="Create a document" element={<DocumentEditor />} />
         <Route exact path="/500" name="Page 500" element={<ErrorPage />} />
         <Route path="/404" name="Page 404" element={<NotFound />} />
         <Route path="/*" name="Home" element={<MainLayout />} />
