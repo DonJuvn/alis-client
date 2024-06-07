@@ -91,7 +91,7 @@ export const Sidebar = () => {
         }}
       >
         <Link to="/">
-          <img src="../../public/imgLogoWhite.png" alt="" />
+          <img className="logo" src="../../public/Логотип.png" alt="" />
         </Link>
         {menuItems.map(item => (
           <LinkItem

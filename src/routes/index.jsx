@@ -3,11 +3,12 @@ import DocumentForm from '../components/DocumentForm.jsx';
 import OrganizationForm from '../components/OrganizationForm.jsx';
 import TemplateGeneration from '../pages/TemplateGeneration.jsx';
 import DocumentEditor from '../main/DocumentEditor.jsx';
+import Home from '../main/Home.jsx';
 
 export default [
   {
     path: '/home',
-    element: <h1>home</h1>,
+    element: <Home />,
   },
   {
     path: '/create-doc',
