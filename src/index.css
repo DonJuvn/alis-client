@@ -21,6 +21,7 @@
 }
 body {
   background: var(--bg-body);
+  font-family: 'Mulish', sans-serif;
 }
 
 a {
@@ -289,32 +290,35 @@ h3 {
 
 .quill {
   height: 70vh;
-  width: 80vw;
+  width: 60vw;
   margin: 10vh auto;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: transparent;
   border-radius: 20px;
   border: none;
 }
 
 .ql-toolbar .ql-formats button {
-  color: #a14a4a;
+  color: #fff;
   font-weight: bold;
   font-size: 20px;
 }
 
 .ql-toolbar .ql-formats button:hover {
-  color: #323da7;
+  color: #a73232;
 }
 
 .ql-toolbar {
   display: flex;
-  border-radius: 30px;
+  border-radius: 20px 30px 0 0;
   justify-content: center;
   border: none;
+  color: #323da7;
+  background-color: #fff;
 }
 
 .ql-container {
-  border-radius: 20px;
+  border-radius: 0 0 20px 20px;
   border: 8px solid #000;
   font-family: Arial, sans-serif;
   /* padding: 10px 0 0; */
@@ -323,11 +327,16 @@ h3 {
 
 .ql-editor {
   min-height: 200px;
-  background-color: #fff;
+  background-color: transparent;
+  /* background-color: #fff; */
   font-size: 16px;
   line-height: 1.6;
-  color: #261e35;
+  color: #ffffff;
   overflow: hidden;
+  font-family: 'Mulish', sans-serif;
+}
+a{
+  font-family: 'Mulish', sans-serif;
 }
 .save-document {
   position: absolute;
@@ -335,10 +344,14 @@ h3 {
   justify-content: center;
   right: 0;
   bottom: 0;
-  margin: 0 11vw 16vh 0;
+  margin: 0 12vw 14vh 0;
   color: #fff;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  padding: 5px 15px;
-  border-radius: 15px;
+  font-family: 'Mulish', sans-serif;
+  padding: 5px 12px;
+  border-radius: 10px;
   background-color: #8767c4;
+  transition: 0.2s;
+}
+.save-document:hover {
+  transform: scale(1.1);
 }

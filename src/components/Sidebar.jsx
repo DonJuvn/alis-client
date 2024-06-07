@@ -75,12 +75,6 @@ const menuItems = [
     icon: <Settings />,
     link: '/settings/',
   },
-  // {
-  //   id: 'template-generation',
-  //   title: 'Генерация шаблонов',
-  //   icon: <EditNoteOutlined />,
-  //   link: '/template-generation/',
-  // },
 ];
 
 export const Sidebar = () => {

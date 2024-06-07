@@ -45,7 +45,6 @@ function App() {
             </GoogleOAuthProvider>
           }
         />
-        <Route exact path="/create" name="Create a document" element={<DocumentEditor />} />
         <Route exact path="/500" name="Page 500" element={<ErrorPage />} />
         <Route path="/404" name="Page 404" element={<NotFound />} />
         <Route path="/*" name="Home" element={<MainLayout />} />

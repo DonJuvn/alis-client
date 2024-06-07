@@ -2,8 +2,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { Facebook, Google } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import { authorizeUser } from '../store/UserSlice';
+import { authorizeUser } from '../store/UserSlice'; 
 
 function Auth() {
   const navigate = useNavigate();
@@ -15,6 +14,7 @@ function Auth() {
       navigate('/home', { replace: true });
     },
     onError: error => console.log('Login Failed:', error),
+    // scope: 'https://www.googleapis.com/auth/drive.file',
   });
 
   return (
@@ -22,7 +22,7 @@ function Auth() {
       <div className="auth-form">
         <div className="auth-text">
           <h2>Авторизация</h2>
-          <p>Войдите что бы продолжить</p>
+          <p>Войдите чтобы продолжить</p>
         </div>
         <hr />
         <div className="auth-button-wrapper">
@@ -39,4 +39,5 @@ function Auth() {
     </div>
   );
 }
+
 export default Auth;
